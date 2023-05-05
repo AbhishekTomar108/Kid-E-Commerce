@@ -6,7 +6,7 @@ export default function ReadMore() {
    <div style={{width:"100vw"}} className="About">
 
 <img src={about} alt="" />
-<div id='About' className="container">
+<div id='read-text'>
 
 <p>We are an Indian, mom-made, eco-friendly toy brand passionate about making playtime safe, sustainable, and skill-building for children everywhere. From newborn babies to infants, toddlers, pre-schoolers, and primary schoolgoers, children of every age group will find age-appropriate, early developmental toys, musical toys, games & activities to their liking on shumee.</p>
 

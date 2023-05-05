@@ -6,7 +6,9 @@ import i4 from "../images/Categorey-Banner-4-desktop.webp"
 export default function Category() {
   return (
     <>
+   
     <div style={{width:"100vw"}} className="container">
+    <h2>Shop By Category</h2>
     <div className="Category-container">
 <img className='image' src={i1} alt="" />
 <img className='image' src={i2} alt="" />

@@ -16,6 +16,7 @@ h2{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    margin-top: 50px;
 }
 
 
@@ -137,6 +138,9 @@ h2{
 
 /* ----------- Customer Components Style ------------- */
 
+.customer-review-container{
+    margin-top: 60px;
+}
 .total-review{
     text-align: center;
 }
@@ -155,6 +159,14 @@ h2{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.product-details span{
+    color: rgb(84, 180, 211);
+}
+
+.review-title{
+    font-weight: bold;
 }
 
 .product-img img{
@@ -205,10 +217,11 @@ h2{
 }
 
 body {
-  width: 100%;
+  /* width: 100%;
   height: 100vh;
-  margin: 0px;
+  margin: 0px; */
   overflow-x:hidden;
+  background: #fdfdfd;
 }
 
 
@@ -222,6 +235,7 @@ body {
     grid-template-columns: 39vw 39vw;
     justify-content: space-between;
     row-gap: 20px;
+    margin-top: 60px;
    
 }
 .Category-container img{
@@ -230,7 +244,11 @@ body {
 }
 
 
-/* About */
+/* ReadMore component Style */
+
+#read-text{
+    padding: 10px 40px;
+}
 
 .About img{
     width:100%;
@@ -326,8 +344,7 @@ body {
 
 footer{
   background-color: #f9cf1c;
-margin: 0 !important;
- 
+  margin-top: 60px; 
 }
 
 .icon{

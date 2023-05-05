@@ -173,7 +173,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -198,7 +198,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -223,7 +223,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -248,7 +248,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -273,7 +273,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -298,7 +298,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -323,7 +323,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -348,7 +348,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -373,7 +373,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -398,7 +398,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -423,7 +423,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
@@ -448,7 +448,7 @@ const Customers = () => {
                             <img src={star}/>
                                 </div> 
                                 <div className='review-content'>
-                                <span>Amazing Product</span>
+                                <span className='review-title'>Amazing Product</span>
                                 <span>MY CHILD LOVED IT</span>
                                 </div>
 
