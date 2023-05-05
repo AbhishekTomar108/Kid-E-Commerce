@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy&family=Poppins&family=Roboto&display=swap');
+
+/* ---------Default CSS------------*/
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card{
+    border: none;
+}
+
+h2{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+
+
+
+
+/* -------Header component Css---------- */
+
+
+
+.header-container{
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container img{
+    height: 70px;
+}
+
+.header-container ul{
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+}
+
+.search-input{
+    border: 1px solid black;
+    border-radius: 25px;
+    padding: 7px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.search-input img{
+    height: 20px;
+}
+
+.header-container input{
+ border: none;
+}
+
+#cart{
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+#cart img{
+    height: 15px;
+}
+
+.categories{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    column-gap: 40px;
+    margin: 25px 0;
+}
+
+ 
+/* ---------------BestSeller components style-------------- */
+
+.bestseller h2{
+    text-align: center;
+}
+
+.add-to-cart-container button{
+    background: green;
+    border: none;
+    width: 100%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 0;
+}
+
+.star-group img{
+    height: 20px;
+}
+
+.star-group{
+    display: inline-flex;
+    column-gap: 2px;
+    justify-content: center;
+}
+
+.review-section{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.price-section{
+    display: flex;
+    column-gap: 20px;
+}
+
+.current-price{
+    font-weight: 700;
+}
+.previous-price{
+    text-decoration: line-through;
+    color: grey;
+}
+
+/* ------Blog style--------*/
+
+.card-img-top{
+    height: 230px;
+}
+
+.card-group{
+    column-gap: 15px;
+    margin-top: 50px;
+}
+
+
+/* ----------- Customer Components Style ------------- */
+
+.total-review{
+    text-align: center;
+}
+
+.review-content{
+    display: flex;
+    flex-direction: column;
+}
+.review-person{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-img img{
+    height: 40px;
+    width: 40px;
+}
+
+.review-card-container{
+    padding: 0 20px;
+    width: 63vw;
+    overflow: hidden;
+}
+
+.review-cards{
+    display: flex;
+    margin-top: 30px; 
+   
+    transition-duration: .5s;
+    transition-timing-function: linear;
+    
+}
+
+.custom-card{
+   text-align: center;
+   padding: 10px 20px;
+   display: flex;
+   flex-direction: column;
+   row-gap: 20px;
+   min-width: 20vw;
+}
+
+.arrow-img img{
+    width: 30px;
+    cursor: pointer;
+}
+
+.arrow-container{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin-top: 10px;
+}
+
+
+*{
+    margin:0 ;
+    padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  overflow-x:hidden;
+}
+
+
+
+
+/* Category */
+
+
+.Category-container {
+    display: grid;
+    grid-template-columns: 39vw 39vw;
+    justify-content: space-between;
+    row-gap: 20px;
+   
+}
+.Category-container img{
+    width: 38vw;
+   
+}
+
+
+/* About */
+
+.About img{
+    width:100%;
+    height: 100%;
+}
+.About p{
+    max-width:100vw;
+    text-align:justify;
+}
+
+
+/* Newsletter */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .column .input-group{
+    height: 3rem;
+    border-radius:5rem;
+  }
+  #search-button  {
+    border-radius: 20rem;
+    border: none !important;
+    background-color: white !important;
+   
+  }
+  .row .column img{
+    height:20vh;
+  
+  }
+  .container h2,p{
+    text-align: center;
+    margin: 20px 0 10px 0;
+  }
+  .container .head{
+    margin: 5rem 0 2rem 0;
+  }
+
+  .row .column .img2{
+    position: absolute;
+    right: 0;
+  }
+ 
+
+/* Press */
+
+ .marquee {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  height: 200px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.track {
+  display: inline-block;
+  margin-left: 20rem;
+  width: 100vw;
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 8s linear infinite;
+
+}
+
+@keyframes marquee {
+  
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+  
+} 
+
+
+
+
+
+/* Footer */
+
+footer{
+  background-color: #f9cf1c;
+margin: 0 !important;
+ 
+}
+
+.icon{
+  display: flex;
+ 
+}
+.text-md-right{
+justify-content: center;
+  column-gap: 30px;
+
+}
