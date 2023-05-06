@@ -2,6 +2,7 @@ import React from 'react'
 import headerLogo from '../images/header-logo.png'
 import cart from '../images/cart.png'
 import search from '../images/search.png'
+import { Link } from "react-router-dom";
 
 const header = () => {
   return (
@@ -15,7 +16,7 @@ const header = () => {
             </div>
 
             <div className='header-img'>
-                <img src={headerLogo}/>
+               <Link to='/'> <img src={headerLogo}/></Link>
             </div>
 
             <div className='account-cart-container'>
@@ -36,8 +37,8 @@ const header = () => {
                 <div className='top-age'>Toys By Age
                 
                 </div>
-                <div>Books</div>
-                <div>Bestsellers</div>
+                <div> <Link to='books'> Books</Link></div>
+                 <div>Bestsellers</div>
                 <div>New Arrivals</div>
                 <div>OFFERS</div>
                 <div>Gifts for all ages</div>

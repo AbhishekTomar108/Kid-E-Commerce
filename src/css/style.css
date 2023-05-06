@@ -25,7 +25,9 @@ h2{
 
 /* -------Header component Css---------- */
 
-
+.categories div{
+    cursor: pointer;
+}
 
 .header-container{
     padding: 28px 40px;
@@ -355,4 +357,140 @@ footer{
 justify-content: center;
   column-gap: 30px;
 
+}
+
+/* ------ Filter component Style ------*/
+
+.filter-container{
+    padding-left: 20px;
+  
+}
+
+.filter-container h2{
+    text-align: initial;
+    margin: 20px 0;
+}
+
+.color-circle{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.color-section{
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px 30px;
+    column-gap: 19px;
+    row-gap: 10px;
+}
+
+
+.price-box input{
+    width: 30px;
+}
+
+.price-box div{
+    display: flex;
+    column-gap: 5px;
+    margin-bottom: 10px;
+}
+
+.drop-down-arrow{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.text-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ------ Product list component style -------- */
+
+.product{
+    display: grid;
+    grid-template-columns: 20vw 60vw;
+}
+
+.container-available img{
+    width: 32vw;
+    display: inline-block;
+    padding: 3rem;
+}
+ .text h1{
+    text-align: center;
+}
+.container{
+display: flex;
+justify-content: center;
+    
+}
+/* .container img{
+    height: 30vh;
+} */
+.container-filter a img{
+    width: 100vw;
+}
+
+.text h2{
+    font-size: medium;
+    font-weight: 700;
+    margin-left: 2rem;
+}
+h3{
+    font-size: medium;
+    font-weight: 450;
+    margin-left: 2rem;
+}
+a{
+    text-decoration: none;
+}
+
+
+.Active{
+    display: flex;  
+}
+.card{
+    width: 26rem;
+    margin: 1rem;
+    border: none;
+    position:relative;
+}
+.offer-h2{
+    color: white;
+    background-color: red;
+    position: absolute;
+    left: 8px;
+    top: 19px;
+    width:20%;
+    text-align: center;
+    
+}
+.right-offer-h2{
+    color: black;
+    background-color: yellow;
+    position: absolute;
+    right: 8px;
+    top: 19px;
+    width: 16%;
+    text-align: center;
+}
+ 
+/* .btn{
+    width: 20rem;
+    border-radius: none;
+} */
+.fa{
+    color: green;
+}
+.text{
+    margin-top: 2rem;
+}
+.text h2{
+    font-weight: 400;
+}
+.card-text a{
+    color: black;
 }
