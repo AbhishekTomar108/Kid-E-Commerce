@@ -37,12 +37,17 @@ const Filter = () => {
 
             <div className='color-container'>
                 <div className='text-section'>
-                <h2>Color</h2>
+                <h2>Out of Stock</h2>
                
                     <img className='drop-down-arrow' onClick={()=>showColor(0)} src={down}/>
                     </div>
+
+                    <div className='stock-container filter-content-section'>
+                        <div className='show-text'><span>Show</span></div> 
+                        <div className='hide-text'></div><span>Hide</span>
+                    </div>
                   
-               <div className='color-section filter-content-section'>
+               {/* <div className='color-section filter-content-section'>
                 {
                     colorArray.map((data,index)=>{
                         return(
@@ -50,7 +55,7 @@ const Filter = () => {
                         )
                     })
                 }
-                </div>
+                </div> */}
             
             </div>
 

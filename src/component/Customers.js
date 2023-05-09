@@ -183,7 +183,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                                <div className='product-img'>
+                                <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -208,7 +208,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                                <div className='product-img'>
+                                <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -233,7 +233,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                                <div className='product-img'>
+                                <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -258,7 +258,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                                <div className='product-img'>
+                                <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -283,7 +283,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -308,7 +308,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -333,7 +333,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -358,7 +358,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -383,7 +383,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -408,7 +408,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -433,7 +433,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>
@@ -458,7 +458,7 @@ const Customers = () => {
                             </div>
 
                             <div className='product-details'>
-                            <div className='product-img'>
+                            <div className='product-image'>
                                 <img  src={productImg1}/>
                                 </div>
                                 <span>Crochet Sensory Cube for Babies</span>

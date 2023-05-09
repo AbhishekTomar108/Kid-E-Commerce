@@ -21,7 +21,7 @@ const header = () => {
 
             <div className='account-cart-container'>
                 <ul>
-                    <li>Account</li>
+                    <li><Link to='account'>Account</Link></li>
                     <li id='cart'>Cart <img src={cart}/></li>
                 </ul>
             </div>
@@ -30,21 +30,23 @@ const header = () => {
         <div className='categories-container'>
             <hr></hr>
             <div className='categories'>
-                <div className='top-cotegories'>Toys By categories
+            <div className='top-cotegories'><Link to='categories'>Toys By categories</Link>
                
                 </div>
 
-                <div className='top-age'>Toys By Age
+                <div className='top-age'><Link to='age'>Toys By Age</Link>
                 
                 </div>
                 <div> <Link to='books'> Books</Link></div>
-                 <div>Bestsellers</div>
-                <div>New Arrivals</div>
-                <div>OFFERS</div>
-                <div>Gifts for all ages</div>
-                <div>Parenting</div>
-                <div>Rewards</div>
+                 <div><Link to='bestseller'>Bestsellers</Link></div>
+                <div><Link to='newArrivals'>New Arrivals</Link></div>
+                <div><Link to='offers'>OFFERS</Link></div>
+                <div><Link to='giftsForAll'>Gifts for all ages</Link></div>
+                <div><Link to='parenting'>Parenting</Link></div>
+                <div><Link to='/'>Rewards</Link></div>
             </div>
+
+           
 
             <hr></hr>
 

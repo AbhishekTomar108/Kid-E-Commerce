@@ -6,7 +6,7 @@ import a2 from "../images/Desktop-Animal-2_200x200.webp"
 export default function Newsletter() {
   return (
     <>
-    <div className="container">
+    <div className="container newsletter">
 <h2 className='head'>Images Side by Side</h2>
 <p >How to create side-by-side images with the CSS float property:</p>
 </div>

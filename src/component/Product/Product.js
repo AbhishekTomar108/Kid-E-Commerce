@@ -2,11 +2,11 @@ import React from 'react'
 import Filter from './Filter'
 import ProductList from './ProductList'
 
-const Product = () => {
+const Product = (props) => {
   return (
     <div className='product'>
         <Filter/>
-        <ProductList/>
+        <ProductList prouctTitle={props.prouctTitle} prouctTitleDesc={props.prouctTitleDesc}/>
     </div>
   )
 }

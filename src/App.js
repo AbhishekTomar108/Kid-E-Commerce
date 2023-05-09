@@ -9,7 +9,8 @@ import Category from './component/Category';
 import ReadMore from './component/ReadMore';
 import Newsletter from './component/Newsletter';
 import Footer from './component/Footer';
-import ProductList from './component/Product/ProductList';
+import Product from './component/Product/Product';
+import Login from './component/loginSignup/Login';
 // import Filter from './component/Product/Filter';
 
 import {
@@ -20,7 +21,11 @@ import {
   HashRouter
  
 } from "react-router-dom";
-import Product from './component/Product/Product';
+import SignUp from './component/loginSignup/SignUp';
+import Parenting from './component/Parenting';
+import Press from './component/Press';
+import ProductDetails from './component/Product/ProductDetails';
+
 
 
 
@@ -30,8 +35,19 @@ function App() {
       <HashRouter>
         <Header/>
         <Routes>
-        <Route  exact path="/books" element={<Product/>}/>
-        <Route  exact path="/" element={[<Banner/>,<Bestseller/>,<Category/>,<Bestseller/>,<ReadMore/>,<Newsletter/>,<Blog/>,<Customers/>]}/>
+        <Route  exact path="/account" element={<Login/>}/>
+        <Route  exact path="/signup" element={<SignUp/>}/>
+        <Route  exact path="/categories" element={<Product prouctTitle='Toys for Active Play' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
+        <Route  exact path="/age" element={<Product prouctTitle='Toys' prouctTitleDesc='Development-friendly play, the safe and sustainable way! Explore wooden toys, games and puzzles for ages 0 to 8. Made with love in India.'/>}/>
+        <Route  exact path="/books" element={<Product prouctTitle='Kids Story Books - English & Hindi' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
+        <Route  exact path="/bestseller" element={<Product prouctTitle='Best Sellers Wooden Toys For Kids' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
+        <Route  exact path="/newArrivals" element={<Product prouctTitle='New Arrivals' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
+        <Route  exact path="/offers" element={<Product prouctTitle='Limited Time Offer on Curated Toys!' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
+        <Route  exact path="/giftsForAll" element={<Product prouctTitle='Return Gifts - Fun, Affordable Favorites' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
+        <Route  exact path="/parenting" element={<Parenting/>}/>
+        <Route  exact path="/rewards" element={<Product/>}/>
+        <Route  exact path="/productdetails" element={<ProductDetails/>}/>
+        <Route  exact path="/" element={[<Banner/>,<Bestseller/>,<Category/>,<Bestseller/>,<ReadMore/>,<Newsletter/>, <Press/>, <Blog/>,<Customers/>]}/>
 
        
         {/* <Banner/>

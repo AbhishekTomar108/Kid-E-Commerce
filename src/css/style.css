@@ -2,6 +2,14 @@
 
 /* ---------Default CSS------------*/
 
+.flex-col{
+    flex-direction: column;
+}
+
+body{
+    font-family: 'Roboto', sans-serif; 
+}
+
 ul{
     list-style: none;
     padding: 0;
@@ -16,7 +24,7 @@ h2{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 
@@ -172,8 +180,7 @@ h2{
 }
 
 .product-img img{
-    height: 40px;
-    width: 40px;
+    width: 100%;
 }
 
 .review-card-container{
@@ -193,7 +200,7 @@ h2{
 
 .custom-card{
    text-align: center;
-   padding: 10px 20px;
+   padding: 10px 0;
    display: flex;
    flex-direction: column;
    row-gap: 20px;
@@ -264,9 +271,10 @@ body {
 
 /* Newsletter */
 
-* {
-    box-sizing: border-box;
-  }
+
+.newsletter p{
+    text-align: center;
+}
   
   .column {
     float: left;
@@ -295,10 +303,7 @@ body {
     height:20vh;
   
   }
-  .container h2,p{
-    text-align: center;
-    margin: 20px 0 10px 0;
-  }
+ 
   .container .head{
     margin: 5rem 0 2rem 0;
   }
@@ -313,9 +318,8 @@ body {
 
  .marquee {
   position: relative;
-  width: 100vw;
-  max-width: 100vw;
-  height: 200px;
+   height: 50px;
+   margin-top: 20px;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -361,15 +365,21 @@ justify-content: center;
 
 /* ------ Filter component Style ------*/
 
-.filter-container{
-    padding-left: 20px;
-  
-}
 
 .filter-container h2{
     text-align: initial;
     margin: 20px 0;
+    font-size: 18px;
 }
+
+.stock-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+
+
 
 .color-circle{
     border-radius: 50%;
@@ -379,7 +389,7 @@ justify-content: center;
 
 .color-section{
     display: grid;
-    grid-template-columns: 30px 30px 30px 30px 30px;
+    grid-template-columns: 15px 15px 15px 15px 15px;
     column-gap: 19px;
     row-gap: 10px;
 }
@@ -411,7 +421,25 @@ justify-content: center;
 
 .product{
     display: grid;
-    grid-template-columns: 20vw 60vw;
+    grid-template-columns: 15vw auto;
+    justify-content: space-around;
+}
+
+.Product-list-card-container .card{
+    min-width: 25vw;
+    margin-bottom: 20px;
+}
+
+.cart-btn{
+    width: 100%;
+}
+
+.Product-list-card-container{
+    column-gap: 20px;
+}
+
+.Product-list-card-container .card-body{
+    padding: 12px 5px !important;
 }
 
 .container-available img{
@@ -422,14 +450,7 @@ justify-content: center;
  .text h1{
     text-align: center;
 }
-.container{
-display: flex;
-justify-content: center;
-    
-}
-/* .container img{
-    height: 30vh;
-} */
+
 .container-filter a img{
     width: 100vw;
 }
@@ -452,12 +473,7 @@ a{
 .Active{
     display: flex;  
 }
-.card{
-    width: 26rem;
-    margin: 1rem;
-    border: none;
-    position:relative;
-}
+
 .offer-h2{
     color: white;
     background-color: red;
@@ -478,10 +494,7 @@ a{
     text-align: center;
 }
  
-/* .btn{
-    width: 20rem;
-    border-radius: none;
-} */
+
 .fa{
     color: green;
 }
@@ -493,4 +506,83 @@ a{
 }
 .card-text a{
     color: black;
+}
+
+
+/* --------- Login component Style -----------*/
+
+.login-form form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.login-form form label{
+    font-weight: bold;
+}
+
+.login-form form input{
+    height: 40px;
+    border: 1px solid #dbdbdb;
+    padding: 10px 10px;
+}
+
+.login-form{
+    min-width: 30vw;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-btn{
+    width: 40%;
+    height: 40px;
+    background: #329910;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.submit-btn-container{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+/* ----------- Parenting component style ----------*/
+
+.blog-card img{
+    
+    width: 100%;
+}
+.blog-container{
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+p{
+    font-size: 14px;
+}
+.blog-text{
+    justify-content: center;
+}
+
+.blog-card{
+   width: 25vw;
+}
+
+.blog-card h2{
+    text-align: initial;
+    margin: 0;
+}
+
+.blog-card h6{
+    margin: 20px 0 40px 0
+}
+
+.tag-section{
+    font-size: 13px;
 }
