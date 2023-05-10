@@ -113,7 +113,7 @@ const ProductDetails = () => {
                     </form>
                   </div>
                   <div className="d-flex align-items-center mb-4 pt-2">
-                    <div className="input-group quantity mr-3" style={{width: '130px'}}>
+                    <div className="input-group quantity mr-3" style={{width: '158px', alignItems:'center'}}>
                       <div className="input-group-btn">
                         <button className="btn btn-primary btn-minus">
                           <i className="fa fa-minus" />
