@@ -25,6 +25,8 @@ import SignUp from './component/loginSignup/SignUp';
 import Parenting from './component/Parenting';
 import Press from './component/Press';
 import ProductDetails from './component/Product/ProductDetails';
+import ProductCart from './component/Product/ProductCart';
+import ProductCheckOut from './component/Product/ProductCheckOut';
 
 
 
@@ -47,6 +49,8 @@ function App() {
         <Route  exact path="/parenting" element={<Parenting/>}/>
         <Route  exact path="/rewards" element={<Product/>}/>
         <Route  exact path="/productdetails" element={<ProductDetails/>}/>
+        <Route  exact path="/productcart" element={<ProductCart/>}/>
+        <Route  exact path="/proceedtocheckout" element={<ProductCheckOut/>}/>
         <Route  exact path="/" element={[<Banner/>,<Bestseller/>,<Category/>,<Bestseller/>,<ReadMore/>,<Newsletter/>, <Press/>, <Blog/>,<Customers/>]}/>
 
        

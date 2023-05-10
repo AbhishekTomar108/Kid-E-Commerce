@@ -20,12 +20,22 @@ ul{
     border: none;
 }
 
+h6{
+    text-align: initial;
+}
+
 h2{
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     margin: 50px 0;
 }
+
+button{
+    background-color: #329910;
+}
+
+
 
 
 
@@ -35,6 +45,14 @@ h2{
 
 .categories div{
     cursor: pointer;
+}
+
+.categories a{
+    color: black !important;
+}
+
+.account-cart-container a{
+    color: black !important;
 }
 
 .header-container{
@@ -47,6 +65,48 @@ h2{
 .header-container img{
     height: 70px;
 }
+
+.user-img{
+    
+    display: none !important;
+}
+
+.icon{
+    height: 25px !important;
+}
+
+.categories-container{
+    position: relative;
+}
+
+.hamburger-container{
+    height: 20px;
+    width: 30px;
+    display: none;
+    cursor: pointer;
+}
+
+.search-hamburger-container{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.hamburger-container .line{
+    height: 3px;
+    width: 95%;
+    background-color: black;
+    margin-bottom: 5px;
+}
+
+.cross{
+    height: 15px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: none;
+}
+
 
 .header-container ul{
     display: flex;
@@ -87,6 +147,12 @@ h2{
     justify-content: center;
     column-gap: 40px;
     margin: 25px 0;
+}
+
+/* ---------Banner components style------------ */
+
+.crousel-btn{
+    background: transparent !important;
 }
 
  
@@ -419,6 +485,53 @@ justify-content: center;
 
 /* ------ Product list component style -------- */
 
+
+.product-item span{
+    font-size: 20px;
+}
+
+.filter-text-container{
+    display: none;
+}
+
+.filter-sign-container{
+    width: 30px;
+    height: 30px;
+}
+
+.sign-line{
+    position: relative;
+    width: 95%;
+    height: 2px;
+    margin-top: 8px;
+    background-color: black;
+}
+
+
+.sign-line::before{
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    height: 7px;
+    width: 7px;
+    top: -2px;
+    background: black;
+    left: 46%;
+}
+
+.sign-line::after{
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    height: 5px;
+    width: 5px;
+    top: -1px;
+    background: white;
+    left: 52%;
+}
+
+
+
 .product{
     display: grid;
     grid-template-columns: 15vw auto;
@@ -434,9 +547,7 @@ justify-content: center;
     width: 100%;
 }
 
-.Product-list-card-container{
-    column-gap: 20px;
-}
+
 
 .Product-list-card-container .card-body{
     padding: 12px 5px !important;
@@ -471,7 +582,9 @@ a{
 
 
 .Active{
-    display: flex;  
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw; 
+    column-gap: 20px; 
 }
 
 .offer-h2{
@@ -526,6 +639,9 @@ a{
     border: 1px solid #dbdbdb;
     padding: 10px 10px;
 }
+.submit-btn-container a{
+    color: blue !important;
+}
 
 .login-form{
     min-width: 30vw;
@@ -565,6 +681,7 @@ justify-content: space-between;
 }
 p{
     font-size: 14px;
+    text-align: initial;
 }
 .blog-text{
     justify-content: center;

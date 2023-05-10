@@ -19,11 +19,11 @@ export default function Banner() {
           </div>
         
         </div>
-        <button className="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
+        <button className="carousel-control-prev crousel-btn" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true" />
           <span className="visually-hidden">Previous</span>
         </button>
-        <button className="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
+        <button className="carousel-control-next crousel-btn" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
           <span className="carousel-control-next-icon" aria-hidden="true" />
           <span className="visually-hidden">Next</span>
         </button>

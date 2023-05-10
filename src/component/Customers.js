@@ -25,7 +25,9 @@ const Customers = () => {
 
              
         if(position<totalItem){
-
+            
+            if(document.documentElement.clientWidth>767)
+            {
             console.log(currentposition);
             movingWidth = movingWidth+100;
             reviewCard.style.transform = `translateX(-${movingWidth}%)`
@@ -33,6 +35,18 @@ const Customers = () => {
              position = position+3;
             setcurrentposition(position)
             setcurrentWidth(movingWidth)
+            }
+
+            else if(document.documentElement.clientWidth<=767)
+            {
+                console.log(currentposition);
+            movingWidth = movingWidth+75;
+            reviewCard.style.transform = `translateX(-${movingWidth}vw)`
+            
+             position = position+3;
+            setcurrentposition(position)
+            setcurrentWidth(movingWidth)
+            }
         }
         else{
             
@@ -67,6 +81,8 @@ const Customers = () => {
              
         if(position<totalItem){
 
+            if(document.documentElement.clientWidth>767)
+            {
             console.log(currentposition);
             movingWidth = movingWidth+100;
             reviewCard.style.transform = `translateX(-${movingWidth}%)`
@@ -74,6 +90,18 @@ const Customers = () => {
              position = position+3;
             setcurrentposition(position)
             setcurrentWidth(movingWidth)
+            }
+
+            else if(document.documentElement.clientWidth<=767)
+            {
+                console.log(currentposition);
+            movingWidth = movingWidth+75;
+            reviewCard.style.transform = `translateX(-${movingWidth}vw)`
+            
+             position = position+3;
+            setcurrentposition(position)
+            setcurrentWidth(movingWidth)
+            }
         }
         else{
             

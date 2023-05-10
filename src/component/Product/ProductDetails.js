@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ProductDetails = () => {
     return (
@@ -63,7 +64,7 @@ const ProductDetails = () => {
                     clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
                     Nonumy</p>
                   <div className="d-flex mb-3">
-                    <strong className="text-dark mr-3">Sizes:</strong>
+                    <strong className="text-dark mr-3 strong-text">Sizes:</strong>
                     <form>
                       <div className="custom-control custom-radio custom-control-inline">
                         <input type="radio" className="custom-control-input" id="size-1" name="size" />
@@ -88,7 +89,7 @@ const ProductDetails = () => {
                     </form>
                   </div>
                   <div className="d-flex mb-4">
-                    <strong className="text-dark mr-3">Colors:</strong>
+                    <strong className="text-dark mr-3 strong-text">Colors:</strong>
                     <form>
                       <div className="custom-control custom-radio custom-control-inline">
                         <input type="radio" className="custom-control-input" id="color-1" name="color" />
@@ -126,8 +127,8 @@ const ProductDetails = () => {
                         </button>
                       </div>
                     </div>
-                    <button className="btn btn-primary px-3"><i className="fa fa-shopping-cart mr-1" /> Add To
-                      Cart</button>
+                    <button className="btn btn-primary px-3"><i className="fa fa-shopping-cart mr-1" /> <Link to='/productcart'> Add To
+                      Cart </Link></button>
                   </div>
                   <div className="d-flex pt-2">
                     <strong className="text-dark mr-2">Share on:</strong>
@@ -278,7 +279,7 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <div className="text-center py-4">
-                      <a className="h6 text-decoration-none text-truncate" href>Product Name Goes Here</a>
+                     <span>Product Name Goes Here</span>
                       <div className="d-flex align-items-center justify-content-center mt-2">
                         <h5>$123.00</h5><h6 className="text-muted ml-2"><del>$123.00</del></h6>
                       </div>
@@ -303,7 +304,7 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <div className="text-center py-4">
-                      <a className="h6 text-decoration-none text-truncate" href>Product Name Goes Here</a>
+                    <span>Product Name Goes Here</span>
                       <div className="d-flex align-items-center justify-content-center mt-2">
                         <h5>$123.00</h5><h6 className="text-muted ml-2"><del>$123.00</del></h6>
                       </div>
@@ -328,7 +329,7 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <div className="text-center py-4">
-                      <a className="h6 text-decoration-none text-truncate" href>Product Name Goes Here</a>
+                    <span>Product Name Goes Here</span>
                       <div className="d-flex align-items-center justify-content-center mt-2">
                         <h5>$123.00</h5><h6 className="text-muted ml-2"><del>$123.00</del></h6>
                       </div>
@@ -353,7 +354,7 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <div className="text-center py-4">
-                      <a className="h6 text-decoration-none text-truncate" href>Product Name Goes Here</a>
+                    <span>Product Name Goes Here</span>
                       <div className="d-flex align-items-center justify-content-center mt-2">
                         <h5>$123.00</h5><h6 className="text-muted ml-2"><del>$123.00</del></h6>
                       </div>
@@ -378,7 +379,7 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <div className="text-center py-4">
-                      <a className="h6 text-decoration-none text-truncate" href>Product Name Goes Here</a>
+                    <span>Product Name Goes Here</span>
                       <div className="d-flex align-items-center justify-content-center mt-2">
                         <h5>$123.00</h5><h6 className="text-muted ml-2"><del>$123.00</del></h6>
                       </div>

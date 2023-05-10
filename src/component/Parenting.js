@@ -7,10 +7,10 @@ export default function Parenting() {
             <h2>Simplifying Parenting</h2>
             <div className='blog-container'>
                 <div className="blog-card">
-                    <a href="/" target="_blank" rel="">
+                  
                         <img src={image} className="card-img-top" alt="..." />
                         <h2>Playing with colours — How does it help babies and toddlers?</h2>
-                    </a>
+                
                     <div className='blog-text'>
                         <h6>All you need to know about colours & play!</h6>
                         <div className='tag-section'>
@@ -22,10 +22,10 @@ export default function Parenting() {
                     </div>
                 </div>
                 <div className="blog-card">
-                    <a href="/" target="_blank" rel="">
+              
                         <img src={image} className="card-img-top" alt="..." />
                         <h2>Playing with colours — How does it help babies and toddlers?</h2>
-                    </a>
+                  
                     <div className='blog-text'>
                         <h6>All you need to know about colours & play!</h6>
                         <div className='tag-section'>
@@ -37,10 +37,10 @@ export default function Parenting() {
                     </div>
                 </div>
                 <div className="blog-card">
-                    <a href="/" target="_blank" rel="">
+               
                         <img src={image} className="card-img-top" alt="..." />
                         <h2>Playing with colours — How does it help babies and toddlers?</h2>
-                    </a>
+                  
                     <div className='blog-text'>
                         <h6>All you need to know about colours & play!</h6>
                         <div className='tag-section'>

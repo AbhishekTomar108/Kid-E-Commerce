@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               {/* Content */}
               <h6 className="text-uppercase font-weight-bold">Company name</h6>
-              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}} />
+              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '100%'}} />
               <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
                 consectetur
                 adipisicing elit.</p>
@@ -65,18 +65,18 @@ export default function Footer() {
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               {/* Links */}
               <h6 className="text-uppercase font-weight-bold">Products</h6>
-              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}} />
+              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '100%'}} />
               <p>
-                <a href="#!">MDBootstrap</a>
+               MDBootstrap
               </p>
               <p>
-                <a href="#!">MDWordPress</a>
+               MDWordPress
               </p>
               <p>
-                <a href="#!">BrandFlow</a>
+                BrandFlow
               </p>
               <p>
-                <a href="#!">Bootstrap Angular</a>
+                Bootstrap Angular
               </p>
             </div>
             {/* Grid column */}
@@ -84,18 +84,18 @@ export default function Footer() {
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
               {/* Links */}
               <h6 className="text-uppercase font-weight-bold">Useful links</h6>
-              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}} />
+              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '100%'}} />
               <p>
-                <a href="#!">Your Account</a>
+                Your Account
               </p>
               <p>
-                <a href="#!">Become an Affiliate</a>
+               Become an Affiliate
               </p>
               <p>
-                <a href="#!">Shipping Rates</a>
+                Shipping Rates
               </p>
               <p>
-                <a href="#!">Help</a>
+                Help
               </p>
             </div>
             {/* Grid column */}
@@ -103,7 +103,7 @@ export default function Footer() {
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               {/* Links */}
               <h6 className="text-uppercase font-weight-bold">Contact</h6>
-              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}} />
+              <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '100%'}} />
               <p>
                 <i className="fas fa-home mr-3" /> New York, NY 10012, US</p>
               <p>
