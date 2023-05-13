@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import headerLogo from '../images/header-logo.png'
 import cart from '../images/cart.png'
 import search from '../images/search.png'
 import user from '../images/user.png'
 import cross from '../images/cross.png'
 import { Link } from "react-router-dom";
+import LoginContext from '../Context/LoginContext'
 
-const header = () => {
+const Header = () => {
+
+    const ContextValue = useContext(LoginContext);
 
     const ShowHideCategories = ()=>{
         const Categories = document.getElementsByClassName('categories-container')[0];
@@ -44,7 +47,7 @@ const header = () => {
 
             <div className='account-cart-container'>
                 <ul>
-                <Link to='account'> <li><span>Account</span>
+                <Link to='account'> <li><span>{ContextValue.username}</span>
                     <img className='user-img icon' src={user}/>
                     </li></Link>
                     <li id='cart'><span>Cart</span> <img className='icon' src={cart}/></li>
@@ -56,7 +59,7 @@ const header = () => {
             <hr></hr>
             <img className='cross' onClick={ShowHideCategories} src={cross}/>
             <div className='categories'>
-            <div className='top-cotegories'><Link to='categories'>Toys By categories</Link>
+            <div className='top-cotegories'><Link to='categories'>Accessories</Link>
                
                 </div>
 
@@ -82,4 +85,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header

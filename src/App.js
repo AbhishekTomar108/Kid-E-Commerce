@@ -27,6 +27,7 @@ import Press from './component/Press';
 import ProductDetails from './component/Product/ProductDetails';
 import ProductCart from './component/Product/ProductCart';
 import ProductCheckOut from './component/Product/ProductCheckOut';
+import LoginState from './Context/LoginState';
 
 
 
@@ -34,6 +35,7 @@ import ProductCheckOut from './component/Product/ProductCheckOut';
 function App() {
   return (
     <div>
+      <LoginState>
       <HashRouter>
         <Header/>
         <Routes>
@@ -66,6 +68,7 @@ function App() {
         <Footer/>
 
         </HashRouter>
+        </LoginState>
     </div>
    
   );

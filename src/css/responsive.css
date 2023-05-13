@@ -1,4 +1,4 @@
-@media screen and (max-width:767px){
+@media screen and (max-width:900px){
 
     /*---------- Header component css-------------*/
 
@@ -62,9 +62,7 @@
 
     /* -------- Review Container------- */
 
-    .review-card-container{
-        width: 85vw;
-    }
+
 
     .custom-card{
         min-width: 75vw;
@@ -95,7 +93,8 @@
         
         grid-template-columns: 45vw 45vw; 
         justify-content: space-around; 
-        column-gap: 0;
+        width: 100vw;
+       
     }
 
     /* ------- Product Cart components style ------- */
@@ -105,5 +104,18 @@
 
     .product-item span{
         font-size: 12px;
+    }
+}
+
+
+@media screen and (min-width:651px) and (max-width:900px){
+    .review-card-container{
+        width:80vw
+    }
+}
+
+@media screen and (max-width:650px){
+    .review-card-container{
+    width: 85vw;
     }
 }

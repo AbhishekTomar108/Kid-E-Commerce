@@ -21,8 +21,8 @@ export default function ProductCart() {
      {/* Cart Start */}
      <div className="container-fluid">
         <div className="row px-xl-5">
-          <div className="col-lg-8 table-responsive mb-5">
-            <table className="table table-light table-borderless table-hover text-center mb-0">
+          <div className="col-lg-8 col-sm table-responsive mb-5">
+            <table className="table table-light table-borderless table-hover text-center mb-0" style={{height:"10px !important", width:"6px"}}>
               <thead className="thead-dark">
                 <tr>
                   <th>Products</th>

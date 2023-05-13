@@ -26,7 +26,7 @@ const Customers = () => {
              
         if(position<totalItem){
             
-            if(document.documentElement.clientWidth>767)
+            if(document.documentElement.clientWidth>900)
             {
             console.log(currentposition);
             movingWidth = movingWidth+100;
@@ -37,7 +37,7 @@ const Customers = () => {
             setcurrentWidth(movingWidth)
             }
 
-            else if(document.documentElement.clientWidth<=767)
+            else if(document.documentElement.clientWidth<=900)
             {
                 console.log(currentposition);
             movingWidth = movingWidth+75;
@@ -81,7 +81,7 @@ const Customers = () => {
              
         if(position<totalItem){
 
-            if(document.documentElement.clientWidth>767)
+            if(document.documentElement.clientWidth>900)
             {
             console.log(currentposition);
             movingWidth = movingWidth+100;
@@ -92,7 +92,7 @@ const Customers = () => {
             setcurrentWidth(movingWidth)
             }
 
-            else if(document.documentElement.clientWidth<=767)
+            else if(document.documentElement.clientWidth<=900)
             {
                 console.log(currentposition);
             movingWidth = movingWidth+75;
@@ -174,7 +174,7 @@ const Customers = () => {
     }
   return (
     <div>
-        <div className='customer-review-container container'>
+        <div className='customer-review-container'>
             <h2>Let customers speak for us</h2>
             <div className='total-review'>
             <div className='star-group'>
@@ -189,7 +189,7 @@ const Customers = () => {
                                 </div>
             </div>
 
-            <div className='review-card-container container'>
+            <div className='review-card-container'>
 
                 <div className='review-cards'>
                     <div className='custom-card'>
