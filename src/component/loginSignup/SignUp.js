@@ -27,7 +27,7 @@ const SignUp = () => {
       console.log('json success')
       navigate('/');
       ContextValue.updateUser(json.user.name);
-       localStorage.setItem('token', json.authtoken);
+       localStorage.setItem('KidsCommerce', json.authToken);
       
  
        console.log("success is true");

@@ -3,7 +3,6 @@ const User = require("../models/User");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { body, validationResult } = require("express-validator");
-// const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 var fetchuser = require('../middleware/fetchuser');
 
@@ -43,22 +42,22 @@ router.post(
         password: securedpassword,
         email: req.body.email,
       });
-      if(User){
+      // if(User){
 
-        res.send({"success":true,"user":user})
-      }
+      //   res.send({"success":true,"user":user})
+      // }
 
-    //   const data = {
-    //     user: {
-    //       id: user.id,
-    //     },
-    //   };
+      const data = {
+        user: {
+          id: user.id,
+        },
+      };
 
-    //   const authtoken = await jwt.sign(data, JWT_SECRET);
-    //   console.log(authtoken + " and " + JWT_SECRET);
+      const authtoken = await jwt.sign(data, JWT_SECRET);
+      console.log(authtoken + " and " + JWT_SECRET);
+      // res.json({ authtoken });
 
-      // res.json(user)
-    //   res.json({ authtoken });
+      res.send({"success":true,"user":user, "authToken":authtoken})
     } catch (error) {
       //   .then(user => res.json(user));
       // res.send(req.body);
@@ -98,19 +97,18 @@ router.post(
             .json({ error: "please log in with correct details" });
         }
 
-        if(user){
-            res.send({"success":true,"user":user})
-        }
-        // const data = {
-        //   user: {
-        //     id: user.id,
-        //   },
-        // };
+     
+        const data = {
+          user: {
+            id: user.id,
+          },
+        };
   
-        // const authtoken = await jwt.sign(data, JWT_SECRET);
-        // console.log(authtoken + " and " + JWT_SECRET);
+        const authtoken = await jwt.sign(data, JWT_SECRET);
+        console.log(authtoken + " and " + JWT_SECRET);
   
-        // res.json({ authtoken });
+      
+        res.send({"success":true,"user":user, "authToken":authtoken})
       } catch (error) {
         console.error(error.message);
         res.status(500).send("some error occured"+error.message);
