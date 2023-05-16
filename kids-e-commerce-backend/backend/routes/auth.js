@@ -3,9 +3,9 @@ const User = require("../models/User");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { body, validationResult } = require("express-validator");
-// const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 var fetchuser = require('../middleware/fetchuser');
+const product = require('./Products.json')
 
 const JWT_SECRET = "mmm";
 
@@ -43,29 +43,29 @@ router.post(
         password: securedpassword,
         email: req.body.email,
       });
-      if(User){
+      // if(User){
 
-        res.send({"success":true,"user":user})
-      }
+      //   res.send({"success":true,"user":user})
+      // }
 
-    //   const data = {
-    //     user: {
-    //       id: user.id,
-    //     },
-    //   };
+      const data = {
+        user: {
+          id: user.id,
+        },
+      };
 
-    //   const authtoken = await jwt.sign(data, JWT_SECRET);
-    //   console.log(authtoken + " and " + JWT_SECRET);
+      const authtoken = await jwt.sign(data, JWT_SECRET);
+      console.log(authtoken + " and " + JWT_SECRET);
+     
 
-      // res.json(user)
-    //   res.json({ authtoken });
+      res.send({"success":true,"user":user, "authToken":authtoken})
     } catch (error) {
       //   .then(user => res.json(user));
       // res.send(req.body);
       // const user = User(req.body);
       // user.save();
       console.error(error.message);
-      res.status(500).send("some error occured");
+      res.status(500).send({error:"some error occured"});
     }
   }
 );
@@ -98,34 +98,47 @@ router.post(
             .json({ error: "please log in with correct details" });
         }
 
-        if(user){
-            res.send({"success":true,"user":user})
-        }
-        // const data = {
-        //   user: {
-        //     id: user.id,
-        //   },
-        // };
+     
+        const data = {
+          user: {
+            id: user.id,
+          },
+        };
   
-        // const authtoken = await jwt.sign(data, JWT_SECRET);
-        // console.log(authtoken + " and " + JWT_SECRET);
+        const authtoken = await jwt.sign(data, JWT_SECRET);
+        console.log(authtoken + " and " + JWT_SECRET);
   
-        // res.json({ authtoken });
+      
+        res.send({"success":true,"user":user, "authToken":authtoken})
       } catch (error) {
         console.error(error.message);
-        res.status(500).send("some error occured"+error.message);
+        res.status(500).send({error:"some error occured"});
       }
     }
   );
   
   //ROUTE-3 Get loggein details using "POST /api/auth/getuser". login Required
   
-  router.post("/getuser", fetchuser, async (req, res) => {
+  router.get("/getuser", fetchuser, async (req, res) => {
     try {
       console.log("running from try ");
       const UserId = req.user.id;
       const user = await User.findById(UserId).select("-password");
-      res.send(user);
+      res.send({"success":true,"user":user});
+    } 
+    catch (error) {
+      console.error(error.message);
+      res.status(500).send({"error":"some error occured"});
+      res.json({error:error.message});
+    }
+  });
+
+  // fetch product data
+
+  router.get("/products", async (req, res) => {
+    try {
+     
+      res.send(product);
     } 
     catch (error) {
       console.error(error.message);

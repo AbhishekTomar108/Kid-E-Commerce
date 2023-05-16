@@ -24,14 +24,13 @@ const Login = () => {
      console.log(json);
      if(json.success)
      {
-      console.log('user =', json.user.name)
+      console.log('username =', json.user.name)
       navigate('/');
       alert("welcome "+json.user.name)
-      ContextValue.updateUser(json.user.name);
-       localStorage.setItem('token', json.authtoken);
+      localStorage.setItem('KidsCommerce', json.authToken);
+      localStorage.setItem('username', json.user.name);
+      ContextValue.updateUser(json.user);
       
- 
-       console.log("success is true");
      }
      else{
        alert("please log in with correct credential")

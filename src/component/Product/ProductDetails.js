@@ -26,16 +26,16 @@ const ProductDetails = () => {
                 <div id="product-carousel" className="carousel slide" data-ride="carousel">
                   <div className="carousel-inner bg-light">
                     <div className="carousel-item active">
-                      <img className="w-100 h-100" src="/assets/img/product-1.jpg" alt="Image" />
+                      <img className="w-100 h-100" src={localStorage.getItem('productImage')} alt="Image" />
                     </div>
                     <div className="carousel-item">
-                      <img className="w-100 h-100" src="/assets/img/product-2.jpg" alt="Image" />
+                      <img className="w-100 h-100" src={localStorage.getItem('productImage')} alt="Image" />
                     </div>
                     <div className="carousel-item">
-                      <img className="w-100 h-100" src="/assets/img/product-3.jpg" alt="Image" />
+                      <img className="w-100 h-100" src={localStorage.getItem('productImage')} alt="Image" />
                     </div>
                     <div className="carousel-item">
-                      <img className="w-100 h-100" src="/assets/img/product-4.jpg" alt="Image" />
+                      <img className="w-100 h-100" src={localStorage.getItem('productImage')} alt="Image" />
                     </div>
                   </div>
                   <a className="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -48,7 +48,7 @@ const ProductDetails = () => {
               </div>
               <div className="col-lg-7 h-auto mb-30">
                 <div className="h-100 bg-light p-30">
-                  <h3>Product Name Goes Here</h3>
+                  <h3>{localStorage.getItem('productName')}</h3>
                   <div className="d-flex mb-3">
                     <div className="text-primary mr-2">
                       <small className="fas fa-star" />
@@ -59,7 +59,7 @@ const ProductDetails = () => {
                     </div>
                     <small className="pt-1">(99 Reviews)</small>
                   </div>
-                  <h3 className="font-weight-semi-bold mb-4">$150.00</h3>
+                  <h3 className="font-weight-semi-bold mb-4">{localStorage.getItem('productPrice')}</h3>
                   <p className="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
                     clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
                     Nonumy</p>

@@ -1,4 +1,5 @@
 const connecttomongo = require('./db')
+const product = require('./routes/Products.json')
 // const auth = require("./routes/auth")
 connecttomongo();
 
@@ -10,6 +11,7 @@ const port = 5000
 app.use(express.json());
 app.use(cors())
 app.use('/api/auth',require('./routes/auth')) 
+
 
 
 app.listen(port, () => {

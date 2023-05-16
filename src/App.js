@@ -28,6 +28,8 @@ import ProductDetails from './component/Product/ProductDetails';
 import ProductCart from './component/Product/ProductCart';
 import ProductCheckOut from './component/Product/ProductCheckOut';
 import LoginState from './Context/LoginState';
+import UserHome from './component/user/UserHome';
+import UserCart from './component/user/UserCart';
 
 
 
@@ -40,8 +42,10 @@ function App() {
         <Header/>
         <Routes>
         <Route  exact path="/account" element={<Login/>}/>
+        <Route  exact path="/user" element={<UserHome/>}/>
+        <Route  exact path="/usercart" element={<UserCart/>}/>
         <Route  exact path="/signup" element={<SignUp/>}/>
-        <Route  exact path="/categories" element={<Product prouctTitle='Toys for Active Play' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
+        <Route  exact path="/categories" element={<Product/>}/>
         <Route  exact path="/age" element={<Product prouctTitle='Toys' prouctTitleDesc='Development-friendly play, the safe and sustainable way! Explore wooden toys, games and puzzles for ages 0 to 8. Made with love in India.'/>}/>
         <Route  exact path="/books" element={<Product prouctTitle='Kids Story Books - English & Hindi' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>
         <Route  exact path="/bestseller" element={<Product prouctTitle='Best Sellers Wooden Toys For Kids' prouctTitleDesc='Active play enables kids to build their gross motor skills, emotional intelligence and physical agility.'/>}/>

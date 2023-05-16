@@ -3,15 +3,23 @@ import LoginContext from './LoginContext'
 
 const LoginState = (props) => {
 
-    const [username, setUserName] = useState("Account");
+    const [user, setUser] = useState({
+      name:"",
+      email:"",
+    });
+    const [productname, setproductname] = useState();
 
 
     const updateUser = (data)=>{
-        setUserName(data);
+        setUser({...user, name:data.name, email:data.email});
+    }
+    const updateproductname = (data)=>{
+      localStorage.setItem( 'product', data );
+      setproductname(data);
     }
 
   return (
-    <LoginContext.Provider value={{username, updateUser}}>
+    <LoginContext.Provider value={{user, updateUser, productname, updateproductname}}>
     {props.children}
 </LoginContext.Provider>
   )

@@ -24,18 +24,14 @@ const SignUp = () => {
      console.log(json);
      if(json.success)
      {
-      console.log('json success')
       navigate('/');
-      ContextValue.updateUser(json.user.name);
-       localStorage.setItem('token', json.authtoken);
+      ContextValue.updateUser(json.user);
+      localStorage.setItem('username', json.user.name);
+       localStorage.setItem('KidsCommerce', json.authToken);
       
- 
-       console.log("success is true");
      }
      else{
-       console.log("success is false");
-      
-       
+        alert(json.error)
 
      }
  }

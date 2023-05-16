@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import image1 from "../../images/img-1.png";
 import { Link } from "react-router-dom";
+import LoginContext from "../../Context/LoginContext";
 // import image2 from "./image/MusicalTruck_460x.webp";
 // import image3 from "./image/Walker__1__Square_460x.webp";
 // import image from "./image/Collection_Page_Banner_-_Desktop-100.webp";
 
 export default function ProductList(props) {
+  const ContextValue = useContext(LoginContext);
+
+  const [productdetails, setproductdetails] =useState();
+  const [prouctTitle, setprouctTitle] =useState();
+  const [prouctTitleDesc, setprouctTitleDesc] =useState();
+
+  useEffect(()=>{
+
+    fetchProductData();
+  
+
+  },[ContextValue.productname])
+
+  const fetchProductData =async()=>{
+
+     let data = await fetch('http://localhost:5000/api/auth/products');
+    let parsedData  = await data.json();
+
+  let filterdata  =parsedData.filter(data=>{
+    return (data.product===localStorage.getItem( 'product'))
+  })
+
+  
+
+    setproductdetails(filterdata);
+    setprouctTitle(filterdata[0].title)
+    setprouctTitleDesc(filterdata[0].description)
+  }
 
   const showHideFilter =()=>{
 
@@ -27,10 +56,10 @@ export default function ProductList(props) {
       <div>
         
               <div className="text">
-        <h1 style={{ fontSize: "30px" }}>{props.prouctTitle}</h1>
+        <h1 style={{ fontSize: "30px" }}>{prouctTitle && prouctTitle}</h1>
        
         <p style={{ textAlign: "center" }}>
-        {props.prouctTitleDesc}
+        {prouctTitleDesc && prouctTitleDesc}
         </p>
       </div>
         <div className="filter-text-container" onClick={showHideFilter}>
@@ -42,221 +71,19 @@ export default function ProductList(props) {
       </div>
 
       <div className="Active Product-list-card-container">
-        <div className="card">
-          <h6 className="right-offer-h2">Offer</h6>
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
-          
-              <br />
-            
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-              
-              <br />
-              
-                <span class="money">₹3,799</span>
-             
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-             <Link to='/productdetails'> Add To Cart</Link>
-            </a>
-          </div>
-        </div>
-        <div className="card">
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
-           
-              <br />
-          
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-             
-              <br />
-             
-                <span class="money">₹3,799</span>
-             
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        <div className="card">
-          <h6 className="offer-h2">60% off</h6>
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-             
-                Baby Activity Walker (1-3 years old)
-           
-              <br />
-             
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-           
-              <br />
-            
-                <span class="money">₹3,799</span>
-           
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        
-     
 
-        <div className="card">
+        {productdetails && productdetails.map((data,index)=>{
+
+            return(
+            <div className="card" key={index}>
           <h6 className="right-offer-h2">Offer</h6>
           <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
+            <img src={data.image} className="card-img-top" alt="..." />
           </a>
           <div className="card-body">
             <p className="card-text">
               
-                Baby Activity Walker (1-3 years old)
-             
-              <br />
-             
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-         
-              <br />
-             
-                <span class="money">₹3,799</span>
-            
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        <div className="card">
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
-            
-              <br />
-              
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-          
-              <br />
-           
-                <span class="money">₹3,799</span>
-            
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        <div className="card">
-          <h6 className="offer-h2">60% off</h6>
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
-         
-              <br />
-             
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-             
-              <br />
-              
-                <span class="money">₹3,799</span>
-           
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        
-    
-     
-        <div className="card">
-          <h6 className="right-offer-h2">Offer</h6>
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
-            
-              <br />
-            
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-           
-              <br />
-            
-                <span class="money">₹3,799</span>
-           
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        <div className="card">
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
+                {data.productname} (1-3 years old)
           
               <br />
             
@@ -265,137 +92,23 @@ export default function ProductList(props) {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
-                87 reviews
-            
+                {data.rating.count} review
+              
               <br />
               
-                <span class="money">₹3,799</span>
-            
+                <span class="money">{data.price}</span>
+             
             </p>
-            <a href="#" className="btn btn-success cart-btn">
+            <Link to='/productdetails' onClick={()=>{localStorage.setItem('productPrice',data.price); localStorage.setItem('productName',data.product); localStorage.setItem('productImage',data.image)}}> <a className="btn btn-success cart-btn">
               Add To Cart
-            </a>
+            </a></Link>
           </div>
         </div>
-        <div className="card">
-          <h6 className="offer-h2">60% off</h6>
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-            
-                Baby Activity Walker (1-3 years old)
-            
-              <br />
-            
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-            
-              <br />
-              
-                <span class="money">₹3,799</span>
-            
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
+            )
+        })}
         
-    
-     
+        
       
-        <div className="card">
-          <h6 className="right-offer-h2">Offer</h6>
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-            
-                Baby Activity Walker (1-3 years old)
-          
-              <br />
-          
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-           
-              <br />
-            
-                <span class="money">₹3,799</span>
-             
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        <div className="card">
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
-           
-              <br />
-              
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-             
-              <br />
-             
-                <span class="money">₹3,799</span>
-             
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
-        <div className="card">
-          <h6 className="offer-h2">60% off</h6>
-          <a href="/" target="_blank" rel="">
-            <img src={image1} className="card-img-top" alt="..." />
-          </a>
-          <div className="card-body">
-            <p className="card-text">
-              
-                Baby Activity Walker (1-3 years old)
-           
-              <br />
-             
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                87 reviews
-            
-              <br />
-             
-                <span class="money">₹3,799</span>
-             
-            </p>
-            <a href="#" className="btn btn-success cart-btn">
-              Add To Cart
-            </a>
-          </div>
-        </div>
         
      </div>
      </div>
