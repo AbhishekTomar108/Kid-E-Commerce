@@ -10,7 +10,8 @@ const Login = () => {
   
   const submitHandle = async(e)=>{
     e.preventDefault();
-   
+    try
+   {
      const response = await fetch("http://localhost:5000/api/auth/login", {
        method: 'POST', 
        
@@ -29,14 +30,16 @@ const Login = () => {
       alert("welcome "+json.user.name)
       localStorage.setItem('KidsCommerce', json.authToken);
       localStorage.setItem('username', json.user.name);
+      localStorage.setItem('userStatus', true);
       ContextValue.updateUser(json.user);
       
      }
      else{
-       alert("please log in with correct credential")
-      
-       
+      alert(json.error)      
 
+     }}
+     catch{
+      console.log("sorry some error occured")
      }
 
   }

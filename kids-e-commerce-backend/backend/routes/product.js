@@ -1,68 +1,68 @@
 const express = require("express");
-const User = require("../models/User");
+const ProductCart = require("../models/ProductCart");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { body, validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
 var fetchuser = require('../middleware/fetchuser');
-
+const product = require('./Products.json')
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+const productlist = require('./Products.json')
 
 const JWT_SECRET = "mmm";
+
+// fetch product data
+
+router.get("/products", async (req, res) => {
+    try {
+     
+      res.send(product);
+    } 
+    catch (error) {
+      console.error(error.message);
+      res.status(500).send({"error":error.message});
+    }
+  });
 
 // Route-1 Create a user using :"POST /api/auth". No Log in required
 router.post(
 
-  "/",
-  [
-    body("email").isEmail(),
-    body("password", "password cannot be blank").exists(),
-    body("name", "please enter correct name").isLength({ min: 5 }),
-  ],
+  "/addproduct",fetchuser,
   async (req, res) => {
-  
+    try{
+        const {productName, totalItem, productPrice} = req.body;
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          return res.status(400).json({ "error": errors.array() });
+        } 
+        const productCart = new ProductCart({
+            productName, totalItem, productPrice, user:req.user.id
+        })  
+        const savedproductCart = await productCart.save();
+        res.json({"success":true, "savedproductCart":savedproductCart})
+    }
+    catch(error){
+        console.error(error.message);
+        res.status(500).send({"error":"internal server error"});
+    }
    
-    // if there are error retuen bad request and error
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-    try {
-      // check whether email is already is exist
-      let user = await User.findOne({ email: req.body.email });
-      if (user) {
-        return res
-          .status(400)
-          .json({ "error": "sorry a user with this email is already is exist" });
-      }
-      const salt = await bcrypt.genSalt(10);
-      const securedpassword = await bcrypt.hash(req.body.password, salt);
-
-      // Create a new user
-      user = await User.create({
-        name: req.body.name,
-        password: securedpassword,
-        email: req.body.email,
-      });
-    
-
-      const data = {
-        user: {
-          id: user.id,
-        },
-      };
-
-      const authtoken = await jwt.sign(data, JWT_SECRET);
-      console.log(authtoken + " and " + JWT_SECRET);
-     
-
-      res.send({"success":true,"user":user, "authToken":authtoken})
-    } catch (error) {
-     
-      console.error(error.message);
-      res.status(500).send({"error":"some error occured"});
-    }
   }
 );
+
+router.get('/fetchalluserproduct',fetchuser, async (req,res)=>
+{
+    try{
+   const productCart  = await ProductCart.find({user:req.user.id})
+   
+   res.json({"success":true, productCart:productCart});
+    }
+    catch(error){
+        console.error(error.message)
+        res.send({"error":error.message})
+    }
+    // res.json([])
+})
 
 router.post(
     "/login",
@@ -127,7 +127,19 @@ router.post(
     }
   });
 
-  
+  // fetch product data
+
+  router.get("/products", async (req, res) => {
+    try {
+     
+      res.send(product);
+    } 
+    catch (error) {
+      console.error(error.message);
+      res.status(500).send("some error occured"+error.message);
+      res.json({"error":error.message});
+    }
+  });
 
 
 module.exports = router;

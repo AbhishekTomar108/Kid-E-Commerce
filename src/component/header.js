@@ -8,15 +8,15 @@ import { Link } from "react-router-dom";
 import LoginContext from '../Context/LoginContext'
 
 const Header = () => {
+    const ContextValue = useContext(LoginContext);
+    const [previousIndex, setpreviousIndex] = useState(0);
 
     useEffect(()=>{
 
  console.log('running from header')
 
-    },[localStorage.getItem('username')])
+    },[ContextValue.productname])
 
-    const ContextValue = useContext(LoginContext);
-    const [previousIndex, setpreviousIndex] = useState(0);
 
     const showProduct = (index)=>{
         const currentProductList = document.getElementsByClassName('dropdown-product-list')[index];

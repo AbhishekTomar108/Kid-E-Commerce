@@ -1,7 +1,66 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import LoginContext from '../../Context/LoginContext'
 
 const ProductDetails = () => {
+  const ContextValue = useContext(LoginContext);
+
+  const [addedItem, setaddedItem] = useState(1);
+
+
+
+
+  const addItem = ()=>{
+
+      const additem = addedItem+1;
+      setaddedItem(additem)
+   
+    
+  }
+  const removeItem = ()=>{
+    if(addedItem>1){
+
+      const additem = addedItem-1;
+      setaddedItem(additem)
+    }
+  }
+
+  const submitUserProductCart =async()=>{
+    
+    if(localStorage.getItem('userStatus')==="true"){
+      console.log('you can proceed')
+
+      const response = await fetch("http://localhost:5000/api/product/addproduct", {
+        method: 'POST', 
+        
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('KidsCommerce')
+        },
+         
+        body: JSON.stringify({productName:localStorage.getItem('productName'),totalItem:addedItem,productPrice:localStorage.getItem('productPrice')}) 
+      });
+
+   
+      const json = await response.json();
+   
+      if(json.success){
+         console.log('savedproductCart = ',json.savedproductCart);         
+      }
+   
+      else{
+         console.log('error = ',json.error); 
+      }
+
+    
+    }
+
+    else{
+      console.log('nahi jayega aage');
+    }
+
+  }
+  
     return (
         <>
     
@@ -116,18 +175,18 @@ const ProductDetails = () => {
                   <div className="d-flex align-items-center mb-4 pt-2">
                     <div className="input-group quantity mr-3" style={{width: '158px', alignItems:'center'}}>
                       <div className="input-group-btn">
-                        <button className="btn btn-primary btn-minus">
-                          <i className="fa fa-minus" />
+                        <button className="btn btn-primary btn-minus"  onClick={removeItem}>
+                          <i className="fa fa-minus"/>
                         </button>
                       </div>
-                      <input type="text" className="form-control bg-secondary border-0 text-center" defaultValue={1} />
+                      <input type="text" className="form-control bg-secondary border-0 text-center" value={addedItem} />
                       <div className="input-group-btn">
-                        <button className="btn btn-primary btn-plus">
-                          <i className="fa fa-plus" />
+                        <button className="btn btn-primary btn-plus"  onClick={addItem}>
+                          <i className="fa fa-plus"/>
                         </button>
                       </div>
                     </div>
-                    <button className="btn btn-primary px-3"><i className="fa fa-shopping-cart mr-1" /> <Link to='/productcart'> Add To
+                    <button className="btn btn-primary px-3" onClick={submitUserProductCart}><i className="fa fa-shopping-cart mr-1" /> <Link to={localStorage.getItem('userStatus')?'/productcart':''}> Add To
                       Cart </Link></button>
                   </div>
                   <div className="d-flex pt-2">

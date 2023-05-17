@@ -1,7 +1,55 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 
 export default function ProductCart() {
+
+  const [userProductData, setuserProductData]  = useState();
+  const [totalAmount, settotalAmount]  = useState(0);
+
+  useEffect(()=>{
+      fetchUserSavedProduct();
+  },[])
+
+const updateTotalAmount =(productData)=>{
+  let total =0;
+ productData.map((data)=>{
+    console.log("total =",data.productPrice*data.totalItem)
+   total = total + (data.productPrice*data.totalItem);
+  })
+ const finalTotal=  Math.trunc(total)
+  settotalAmount(finalTotal);
+}
+
+  const fetchUserSavedProduct  =async()=>{
+    try
+   { const response = await fetch("http://localhost:5000/api/product/fetchalluserproduct", {
+        method: 'GET', 
+        
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('KidsCommerce')
+        },
+         
+      });
+
+   
+      const json = await response.json();
+   
+      if(json.success){
+         console.log('userAllproductCart = ',json.productCart); 
+         setuserProductData(json.productCart); 
+         updateTotalAmount(json.productCart);       
+      }
+   
+      else{
+         console.log('error = ',json.error); 
+      }}
+
+      catch{
+        console.log('error = ',"sorry some error occured"); 
+      }
+  }
+
   return (
     <>
 
@@ -33,9 +81,16 @@ export default function ProductCart() {
                 </tr>
               </thead>
               <tbody className="align-middle">
-                <tr>
-                  <td className="align-middle"><img src="img/product-1.jpg" alt="" style={{width: '50px'}} /> Product Name</td>
-                  <td className="align-middle">$150</td>
+               
+               
+               
+                {userProductData && userProductData.map((data,index)=>{
+
+                  return(     
+                      <tr key={index}>
+                  <td className="align-middle"><img src="img/product-5.jpg" alt="" style={{width: '50px'}} />{data.
+productName}</td>
+                  <td className="align-middle">{data.productPrice}</td>
                   <td className="align-middle">
                     <div className="input-group quantity mx-auto" style={{width: '110px',alignItems:'center'}}>
                       <div className="input-group-btn">
@@ -43,7 +98,7 @@ export default function ProductCart() {
                           <i className="fa fa-minus" />
                         </button>
                       </div>
-                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} defaultValue={1} />
+                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} value={data.totalItem} />
                       <div className="input-group-btn">
                         <button className="btn btn-sm btn-primary btn-plus">
                           <i className="fa fa-plus" />
@@ -51,93 +106,12 @@ export default function ProductCart() {
                       </div>
                     </div>
                   </td>
-                  <td className="align-middle">$150</td>
+                  <td className="align-middle">{data.productPrice*data.totalItem}</td>
                   <td className="align-middle"><button className="btn btn-sm btn-danger"><i className="fa fa-times" /></button></td>
                 </tr>
-                <tr>
-                  <td className="align-middle"><img src="img/product-2.jpg" alt="" style={{width: '50px'}} /> Product Name</td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle">
-                    <div className="input-group quantity mx-auto" style={{width: '110px',alignItems:'center'}}>
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-minus">
-                          <i className="fa fa-minus" />
-                        </button>
-                      </div>
-                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} defaultValue={1} />
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-plus">
-                          <i className="fa fa-plus" />
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle"><button className="btn btn-sm btn-danger"><i className="fa fa-times" /></button></td>
-                </tr>
-                <tr>
-                  <td className="align-middle"><img src="img/product-3.jpg" alt="" style={{width: '50px'}} /> Product Name</td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle">
-                    <div className="input-group quantity mx-auto" style={{width: '110px',alignItems:'center'}}>
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-minus">
-                          <i className="fa fa-minus" />
-                        </button>
-                      </div>
-                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} defaultValue={1} />
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-plus">
-                          <i className="fa fa-plus" />
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle"><button className="btn btn-sm btn-danger"><i className="fa fa-times" /></button></td>
-                </tr>
-                <tr>
-                  <td className="align-middle"><img src="img/product-4.jpg" alt="" style={{width: '50px'}} /> Product Name</td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle">
-                    <div className="input-group quantity mx-auto" style={{width: '110px',alignItems:'center'}}>
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-minus">
-                          <i className="fa fa-minus" />
-                        </button>
-                      </div>
-                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} defaultValue={1} />
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-plus">
-                          <i className="fa fa-plus" />
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle"><button className="btn btn-sm btn-danger"><i className="fa fa-times" /></button></td>
-                </tr>
-                <tr>
-                  <td className="align-middle"><img src="img/product-5.jpg" alt="" style={{width: '50px'}} /> Product Name</td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle">
-                    <div className="input-group quantity mx-auto" style={{width: '110px',alignItems:'center'}}>
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-minus">
-                          <i className="fa fa-minus" />
-                        </button>
-                      </div>
-                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} defaultValue={1} />
-                      <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-plus">
-                          <i className="fa fa-plus" />
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="align-middle">$150</td>
-                  <td className="align-middle"><button className="btn btn-sm btn-danger"><i className="fa fa-times" /></button></td>
-                </tr>
+                  )
+                }) }
+
               </tbody>
             </table>
           </div>
@@ -155,7 +129,7 @@ export default function ProductCart() {
               <div className="border-bottom pb-2">
                 <div className="d-flex justify-content-between mb-3">
                   <h6>Subtotal</h6>
-                  <h6>$150</h6>
+                  <h6>{totalAmount}</h6>
                 </div>
                 <div className="d-flex justify-content-between">
                   <h6 className="font-weight-medium">Shipping</h6>

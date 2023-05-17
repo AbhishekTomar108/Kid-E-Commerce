@@ -28,7 +28,7 @@ const Customers = () => {
             
             if(document.documentElement.clientWidth>900)
             {
-            console.log(currentposition);
+           
             movingWidth = movingWidth+100;
             reviewCard.style.transform = `translateX(-${movingWidth}%)`
             
@@ -39,7 +39,6 @@ const Customers = () => {
 
             else if(document.documentElement.clientWidth<=900)
             {
-                console.log(currentposition);
             movingWidth = movingWidth+75;
             reviewCard.style.transform = `translateX(-${movingWidth}vw)`
             
@@ -83,7 +82,7 @@ const Customers = () => {
 
             if(document.documentElement.clientWidth>900)
             {
-            console.log(currentposition);
+           
             movingWidth = movingWidth+100;
             reviewCard.style.transform = `translateX(-${movingWidth}%)`
             
@@ -94,7 +93,7 @@ const Customers = () => {
 
             else if(document.documentElement.clientWidth<=900)
             {
-                console.log(currentposition);
+              
             movingWidth = movingWidth+75;
             reviewCard.style.transform = `translateX(-${movingWidth}vw)`
             
@@ -124,7 +123,7 @@ const Customers = () => {
         
         if(currentposition<totalItem){
 
-            console.log(currentposition);
+          
             const moveWidth = currentWidth+100;
             reviewCard.style.transform = `translateX(-${moveWidth}%)`
             
@@ -151,7 +150,7 @@ const Customers = () => {
         const totalItem = customCard.length;
         const reviewCard = document.getElementsByClassName('review-cards')[0];
 
-        console.log('lenght =', totalItem)
+        
         
         if(currentposition>3){
 

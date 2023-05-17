@@ -11,7 +11,8 @@ const SignUp = () => {
     e.preventDefault();
     if(user.password===user.confirmpassword)
      {
-     const response = await fetch("http://localhost:5000/api/auth", {
+      try
+    { const response = await fetch("http://localhost:5000/api/auth", {
        method: 'POST', 
        
        headers: {
@@ -28,11 +29,15 @@ const SignUp = () => {
       ContextValue.updateUser(json.user);
       localStorage.setItem('username', json.user.name);
        localStorage.setItem('KidsCommerce', json.authToken);
+       localStorage.setItem('userStatus', true);
       
      }
      else{
         alert(json.error)
+     }}
 
+     catch{
+            console.log("sorry there is some error occured")
      }
  }
  else{

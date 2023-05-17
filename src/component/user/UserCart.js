@@ -1,38 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import LoginContext from '../../Context/LoginContext'
+
 
 const UserCart = () => {
+  const ContextValue = useContext(LoginContext);
+
+ 
+
 
     useEffect(()=>{
 
-        fetchuserDetails();
+      ContextValue.fetchuserDetails();
     },[])
 
-    const fetchuserDetails = async()=>{
-        const response = await fetch("http://localhost:5000/api/auth/getuser", {
-       method: 'GET', 
-       
-       headers: {
-         'Content-Type': 'application/json',
-         'auth-token': localStorage.getItem('KidsCommerce')
-       },
- 
-      
-        
-     });
-
-     const json = await response.json();
-
-     if(json.success){
-        console.log('user = ',json.user);
-     }
-
-     else{
-        console.log('error = ',json.error); 
-        alert(json.error) 
-     }
-    }
   return (
-    <div className='container'>UserCart</div>
+    <div>
+  { localStorage.getItem('userStatus')==="true" ? <div className='user-detail-conatiner container'>
+      <div className='detail-section'>
+        <label>Name</label>
+        <label>{ContextValue.user.name}</label>
+        <label>Email</label>
+        <label>{ContextValue.user.email}</label>
+
+      </div>
+    </div> :<div className='container'> Please Login to see the Cart</div>}
+    </div>
   )
 }
 

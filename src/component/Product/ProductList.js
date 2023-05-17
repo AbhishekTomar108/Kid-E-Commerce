@@ -22,7 +22,7 @@ export default function ProductList(props) {
 
   const fetchProductData =async()=>{
 
-     let data = await fetch('http://localhost:5000/api/auth/products');
+     let data = await fetch('http://localhost:5000/api/product/products');
     let parsedData  = await data.json();
 
   let filterdata  =parsedData.filter(data=>{
@@ -99,7 +99,7 @@ export default function ProductList(props) {
                 <span class="money">{data.price}</span>
              
             </p>
-            <Link to='/productdetails' onClick={()=>{localStorage.setItem('productPrice',data.price); localStorage.setItem('productName',data.product); localStorage.setItem('productImage',data.image)}}> <a className="btn btn-success cart-btn">
+            <Link to='/productdetails' onClick={()=>{localStorage.setItem('productPrice',data.price); localStorage.setItem('productName',data.productname); localStorage.setItem('productImage',data.image)}}> <a className="btn btn-success cart-btn">
               Add To Cart
             </a></Link>
           </div>

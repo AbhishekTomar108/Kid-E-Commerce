@@ -6,9 +6,10 @@ const fetchuser =(req, res, next)=>{
     // get the user from the jwt token and dd id to req object
     console.log("calling fetchuser");
     const token =  req.header('auth-token');
-    if(!token)
+    if(token==="null")
     {
-        res.status(401).send({"error":"please authenticate using valid token"});
+        console.log("token is not running")
+        res.status(401).send({"error":"you are unauthorized"});
     }
     try{
     const data = jwt.verify(token, JWT_SECRET);
@@ -18,6 +19,7 @@ const fetchuser =(req, res, next)=>{
     next();
     }
     catch(error){
+       
         res.status(401).send({"error":"you are unauthorized"});
     }
 }
