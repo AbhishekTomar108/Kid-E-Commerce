@@ -43,6 +43,7 @@ router.post(
         password: securedpassword,
         email: req.body.email,
       });
+<<<<<<< HEAD
     
 
       const data = {
@@ -55,6 +56,23 @@ router.post(
       console.log(authtoken + " and " + JWT_SECRET);
      
 
+=======
+      // if(User){
+
+      //   res.send({"success":true,"user":user})
+      // }
+
+      const data = {
+        user: {
+          id: user.id,
+        },
+      };
+
+      const authtoken = await jwt.sign(data, JWT_SECRET);
+      console.log(authtoken + " and " + JWT_SECRET);
+      // res.json({ authtoken });
+
+>>>>>>> 7d625f974fbd1110ca08dded5237b4dd54bc5a16
       res.send({"success":true,"user":user, "authToken":authtoken})
     } catch (error) {
      
