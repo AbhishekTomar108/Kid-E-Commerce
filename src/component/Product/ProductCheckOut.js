@@ -1,6 +1,68 @@
-import React from 'react'
+
+import React, { useEffect, useState } from 'react'
 
 export default function ProductCheckOut() {
+
+  const [userDetail, setuserDetail] = useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+    mobile:"",
+    addressLine1:"",
+    addressLine2:"",
+    country:"",
+    city:"",
+    state:"",
+    zipCode:""
+  })
+
+  const [productData, setproductData] = useState();
+  const [amount, setAmount]  =useState(0);
+
+  useEffect(()=>{
+    const dataproduct = JSON.parse(localStorage.getItem('productCartData'))
+    setproductData(dataproduct)
+    console.log("product data ", productData);
+    let total = 0;
+    dataproduct.map(data=>{
+        total = total + (data.productPrice*data.totalItem)
+    })
+
+    const finalTotal = Math.trunc(total);
+    setAmount(finalTotal);
+  },[])
+
+  const submitOrder = async()=>{
+    console.log('submit order data =', userDetail)
+    try
+    { const response = await fetch("http://localhost:5000/api/auth/adduseraddress", {
+       method: 'POST', 
+       
+       headers: {
+         'Content-Type': 'application/json',
+         'auth-token': localStorage.getItem('KidsCommerce')
+       },
+       body: JSON.stringify({firstName:userDetail.firstName,lastName:userDetail.lastName,email:userDetail.email,mobile:userDetail.mobile,addressLine1:userDetail.addressLine1,addressLine2:userDetail.addressLine2,country:userDetail.country,city:userDetail.city,state:userDetail.state,zipCode:userDetail.zipCode}) 
+        
+     });
+     const json = await response.json();
+     console.log(json);
+     if(json.success)
+     {
+       console.log('savedaddress  =',json.useraddress)
+       alert('your order has placed')
+      
+     }
+     else{
+      
+        console.log("error =",json.error)
+     }}
+
+     catch{
+            console.log("sorry there is some error occured")
+     }
+  }
+  
   return (
     <>
             {/* Breadcrumb Start */}
@@ -25,31 +87,31 @@ export default function ProductCheckOut() {
                 <div className="row">
                   <div className="col-md-6 form-group">
                     <label>First Name</label>
-                    <input className="form-control" type="text" placeholder="John" />
+                    <input className="form-control" type="text" placeholder="John" name="firstName"  value={userDetail.firstName} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-6 form-group">
                     <label>Last Name</label>
-                    <input className="form-control" type="text" placeholder="Doe" />
+                    <input className="form-control" type="text" placeholder="Doe" name="lastName"   value={userDetail.lastName} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})}/>
                   </div>
                   <div className="col-md-6 form-group">
                     <label>E-mail</label>
-                    <input className="form-control" type="text" placeholder="example@email.com" />
+                    <input className="form-control" type="text" placeholder="example@email.com" name="email"   value={userDetail.email} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-6 form-group">
                     <label>Mobile No</label>
-                    <input className="form-control" type="text" placeholder="+123 456 789" />
+                    <input className="form-control" type="text" placeholder="+123 456 789" name="mobile"   value={userDetail.mobile} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-6 form-group">
                     <label>Address Line 1</label>
-                    <input className="form-control" type="text" placeholder="123 Street" />
+                    <input className="form-control" type="text" placeholder="123 Street" name="addressLine1"   value={userDetail.addressLine1} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-6 form-group">
                     <label>Address Line 2</label>
-                    <input className="form-control" type="text" placeholder="123 Street" />
+                    <input className="form-control" type="text" placeholder="123 Street" name="addressLine2"   value={userDetail.addressLine2} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-6 form-group">
                     <label>Country</label>
-                    <select className="custom-select">
+                    <select className="custom-select"  name="country"   value={userDetail.country} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})}>
                       <option selected>United States</option>
                       <option>Afghanistan</option>
                       <option>Albania</option>
@@ -58,15 +120,15 @@ export default function ProductCheckOut() {
                   </div>
                   <div className="col-md-6 form-group">
                     <label>City</label>
-                    <input className="form-control" type="text" placeholder="New York" />
+                    <input className="form-control" type="text" placeholder="New York" name="city"   value={userDetail.city} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-6 form-group">
                     <label>State</label>
-                    <input className="form-control" type="text" placeholder="New York" />
+                    <input className="form-control" type="text" placeholder="New York" name="state"   value={userDetail.state} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-6 form-group">
                     <label>ZIP Code</label>
-                    <input className="form-control" type="text" placeholder={123} />
+                    <input className="form-control" type="text" placeholder={123} name="zipCode"   value={userDetail.zipCode} onChange={(e)=>setuserDetail({...userDetail,[e.target.name]:e.target.value})} />
                   </div>
                   <div className="col-md-12 form-group">
                     <div className="custom-control custom-checkbox">
@@ -140,23 +202,21 @@ export default function ProductCheckOut() {
               <div className="bg-light p-30 mb-5">
                 <div className="border-bottom">
                   <h6 className="mb-3">Products</h6>
-                  <div className="d-flex justify-content-between">
-                    <p>Product Name 1</p>
-                    <p>$150</p>
+                 { productData && productData.map((data,index)=>{
+                  return (
+                    <div className="d-flex justify-content-between" key={index}>
+                    <p>{data.productName}</p>
+                    <p>{data.productPrice}</p>
                   </div>
-                  <div className="d-flex justify-content-between">
-                    <p>Product Name 2</p>
-                    <p>$150</p>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <p>Product Name 3</p>
-                    <p>$150</p>
-                  </div>
+                  )
+                 })}
+                 
+                  
                 </div>
                 <div className="border-bottom pt-3 pb-2">
                   <div className="d-flex justify-content-between mb-3">
                     <h6>Subtotal</h6>
-                    <h6>$150</h6>
+                    <h6>{amount}</h6>
                   </div>
                   <div className="d-flex justify-content-between">
                     <h6 className="font-weight-medium">Shipping</h6>
@@ -166,7 +226,7 @@ export default function ProductCheckOut() {
                 <div className="pt-2">
                   <div className="d-flex justify-content-between mt-2">
                     <h5>Total</h5>
-                    <h5>$160</h5>
+                    <h5>{amount+10}</h5>
                   </div>
                 </div>
               </div>
@@ -191,7 +251,7 @@ export default function ProductCheckOut() {
                       <label className="custom-control-label" htmlFor="banktransfer">Bank Transfer</label>
                     </div>
                   </div>
-                  <button className="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
+                  <button className="btn btn-block btn-primary font-weight-bold py-3" onClick={submitOrder}>Place Order</button>
                 </div>
               </div>
             </div>

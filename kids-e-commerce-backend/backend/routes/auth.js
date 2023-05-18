@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("../models/User");
+const UserAddress = require("../models/UserAddress");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { body, validationResult } = require("express-validator");
@@ -43,21 +44,8 @@ router.post(
         password: securedpassword,
         email: req.body.email,
       });
-<<<<<<< HEAD
-    
 
-      const data = {
-        user: {
-          id: user.id,
-        },
-      };
-
-      const authtoken = await jwt.sign(data, JWT_SECRET);
-      console.log(authtoken + " and " + JWT_SECRET);
-     
-
-=======
-      // if(User){
+          // if(User){
 
       //   res.send({"success":true,"user":user})
       // }
@@ -72,7 +60,7 @@ router.post(
       console.log(authtoken + " and " + JWT_SECRET);
       // res.json({ authtoken });
 
->>>>>>> 7d625f974fbd1110ca08dded5237b4dd54bc5a16
+
       res.send({"success":true,"user":user, "authToken":authtoken})
     } catch (error) {
      
@@ -81,6 +69,8 @@ router.post(
     }
   }
 );
+
+// ROUTE-2 user login using post 
 
 router.post(
     "/login",
@@ -138,12 +128,56 @@ router.post(
       const user = await User.findById(UserId).select("-password");
       res.send({"success":true,"user":user});
     } 
-    catch (error) {
+    catch (error) { 
       console.error(error.message);
       res.status(500).send({"error":"some error occured"});
       res.json({error:error.message});
     }
   });
+
+
+  // ROUTE-3 post user address correspond to logged in user using post. login required
+
+  router.post("/adduseraddress", fetchuser, async(req, res)=>{
+    
+    try{
+      const { firstName, lastName, email, mobile, addressLine1, addressLine2, country, city, state, zipCode} = req.body;
+      
+      // const UserAddress  = new UserAddress ({
+      //   firstName,
+      //   lastName,
+      //   email,
+      //   mobile,
+      //   addressLine1,
+      //   addressLine2,
+      //   country,
+      //   city,
+      //   state,
+      //   zipCode,
+      //   user:req.user.id
+      // });
+
+      const useraddress= await UserAddress.create({
+        firstName,
+        lastName,
+        email,
+        mobile,
+        addressLine1,
+        addressLine2,
+        country,
+        city,
+        state,
+        zipCode,
+        user:req.user.id
+      });
+      // const savedUsedAddress = await UserAddress.save();
+      res.json({ "success": true, "useraddress": useraddress });
+    }
+    catch{
+      // console.error(error.message);
+      res.status(500).send({ "error": "Internal server error" });
+    }
+  })
 
   
 

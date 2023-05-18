@@ -12,6 +12,7 @@ const fetchuser =(req, res, next)=>{
         res.status(401).send({"error":"you are unauthorized"});
     }
     try{
+        console.log("try is running");
     const data = jwt.verify(token, JWT_SECRET);
     
     req.user = data.user;

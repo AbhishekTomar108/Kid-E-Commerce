@@ -5,19 +5,21 @@ const bcrypt = require('bcryptjs');
 const { body, validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
 var fetchuser = require('../middleware/fetchuser');
-const product = require('./Products.json')
+// const product = require('./Products.json')
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const productlist = require('./Products.json')
+// const productlist = require('./Products.json')
 
 const JWT_SECRET = "mmm";
+const allproducts = mongoose.model('allproducts', {});
 
-// fetch product data
+//ROUTE-1 fetch all product data using Get
 
 router.get("/products", async (req, res) => {
     try {
-     
-      res.send(product);
+      const product = await allproducts.find({});
+      console.log("running from fetch product =",product)
+      return res.json(product);
     } 
     catch (error) {
       console.error(error.message);
@@ -25,30 +27,46 @@ router.get("/products", async (req, res) => {
     }
   });
 
-// Route-1 Create a user using :"POST /api/auth". No Log in required
+// Route-2 add product correspond to user using post
 router.post(
 
   "/addproduct",fetchuser,
   async (req, res) => {
-    try{
-        const {productName, totalItem, productPrice} = req.body;
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-          return res.status(400).json({ "error": errors.array() });
-        } 
-        const productCart = new ProductCart({
-            productName, totalItem, productPrice, user:req.user.id
-        })  
-        const savedproductCart = await productCart.save();
-        res.json({"success":true, "savedproductCart":savedproductCart})
+    try {
+      const { productName, totalItem, productPrice } = req.body;
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ "error": errors.array() });
+      }
+    
+      let existingProductCart = await ProductCart.findOne({ user: req.user.id, productName: productName });
+    
+      if (existingProductCart) {
+        existingProductCart.totalItem = totalItem;
+        existingProductCart.productPrice = productPrice;
+        const updatedProductCart = await existingProductCart.save();
+        return res.json({ "success": true, "savedproductCart": updatedProductCart });
+      }
+    
+      const productCart = new ProductCart({
+        productName,
+        totalItem,
+        productPrice,
+        user: req.user.id
+      });
+    
+      const savedProductCart = await productCart.save();
+      res.json({ "success": true, "savedproductCart": savedProductCart });
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send({ "error": "Internal server error" });
     }
-    catch(error){
-        console.error(error.message);
-        res.status(500).send({"error":"internal server error"});
-    }
+    
    
   }
 );
+
+//ROUTE-3 fetch all product data correspond to user using get
 
 router.get('/fetchalluserproduct',fetchuser, async (req,res)=>
 {
@@ -64,82 +82,7 @@ router.get('/fetchalluserproduct',fetchuser, async (req,res)=>
     // res.json([])
 })
 
-router.post(
-    "/login",
-    [
-      body("email").isEmail(),
-      body("password", "password cannot be blank").exists(),
-    ],
-    async (req, res) => {
-      // if there are error return bad request and error
-      const errors = validationResult(req);
-  
-      if (!errors.isEmpty()) {
-        return res.status(400).json({ "error": errors.array() });
-      }
-      const { email, password } = req.body;
-      try {
-        let user = await User.findOne({ email });
-        if (!user) {
-          return res
-            .status(400)
-            .json({ "error": "please log in with correct details" });
-        }
-        const passwordcompare = await bcrypt.compare(password, user.password);
-        if (!passwordcompare) {
-          return res
-            .status(400)
-            .json({ "error": "please log in with correct details" });
-        }
 
-     
-        const data = {
-          user: {
-            id: user.id,
-          },
-        };
-  
-        const authtoken = await jwt.sign(data, JWT_SECRET);
-        console.log(authtoken + " and " + JWT_SECRET);
-  
-      
-        res.send({"success":true,"user":user, "authToken":authtoken})
-      } catch (error) {
-        console.error(error.message);
-        res.status(500).send({"error":"some error occured"});
-      }
-    }
-  );
-  
-  //ROUTE-3 Get loggein details using "POST /api/auth/getuser". login Required
-  
-  router.get("/getuser", fetchuser, async (req, res) => {
-    try {
-      console.log("running from try ");
-      const UserId = req.user.id;
-      const user = await User.findById(UserId).select("-password");
-      res.send({"success":true,"user":user});
-    } 
-    catch (error) {
-      console.error(error.message);
-      res.status(500).send({"error":"some error occured"});
-      res.json({error:error.message});
-    }
-  });
-
-  // fetch product data
-
-  router.get("/products", async (req, res) => {
-    try {
-     
-      res.send(product);
-    } 
-    catch (error) {
-      console.error(error.message);
-      res.status(500).send("some error occured"+error.message);
-      res.json({"error":error.message});
-    }
-  });
 
 
 module.exports = router;

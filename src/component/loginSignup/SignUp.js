@@ -26,19 +26,19 @@ const SignUp = () => {
      if(json.success)
      {
       navigate('/');
-<<<<<<< HEAD
+
       ContextValue.updateUser(json.user);
       localStorage.setItem('username', json.user.name);
        localStorage.setItem('KidsCommerce', json.authToken);
        localStorage.setItem('userStatus', true);
-=======
+
       ContextValue.updateUser(json.user.name);
        localStorage.setItem('KidsCommerce', json.authToken);
->>>>>>> 7d625f974fbd1110ca08dded5237b4dd54bc5a16
+
       
      }
      else{
-        alert(json.error)
+        console.log(json.error)
      }}
 
      catch{

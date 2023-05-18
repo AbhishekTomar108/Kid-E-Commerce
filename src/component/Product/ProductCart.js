@@ -5,15 +5,40 @@ export default function ProductCart() {
 
   const [userProductData, setuserProductData]  = useState();
   const [totalAmount, settotalAmount]  = useState(0);
+  const [addedItem, setaddedItem] = useState([]);
 
   useEffect(()=>{
       fetchUserSavedProduct();
   },[])
 
+  const addItem = (index)=>{
+
+    const additem = [...addedItem];
+    additem[index] = additem[index]+1;
+    setaddedItem(additem)
+ 
+  
+}
+const removeItem = (index)=>{
+  if(addedItem[index]>1){
+
+    const additem = [...addedItem];
+    additem[index] = additem[index]-1
+    setaddedItem(additem)
+  }
+}
+
+const removeProduct = (Index)=>{
+ 
+  const productData = [...userProductData]
+  productData.splice(Index,1)
+  setuserProductData(productData);
+}
+
 const updateTotalAmount =(productData)=>{
   let total =0;
  productData.map((data)=>{
-    console.log("total =",data.productPrice*data.totalItem)
+   
    total = total + (data.productPrice*data.totalItem);
   })
  const finalTotal=  Math.trunc(total)
@@ -38,7 +63,14 @@ const updateTotalAmount =(productData)=>{
       if(json.success){
          console.log('userAllproductCart = ',json.productCart); 
          setuserProductData(json.productCart); 
-         updateTotalAmount(json.productCart);       
+         updateTotalAmount(json.productCart);  
+         localStorage.setItem('productCartData',JSON.stringify(json.productCart)) 
+         let addItemArray = [...addedItem]
+         json.productCart.map((data,index)=>{
+          
+          addItemArray[index] = data.totalItem;
+         })  
+         setaddedItem(addItemArray);  
       }
    
       else{
@@ -94,20 +126,20 @@ productName}</td>
                   <td className="align-middle">
                     <div className="input-group quantity mx-auto" style={{width: '110px',alignItems:'center'}}>
                       <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-minus">
+                        <button className="btn btn-sm btn-primary btn-minus" onClick={()=>removeItem(index)}>
                           <i className="fa fa-minus" />
                         </button>
                       </div>
-                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} value={data.totalItem} />
+                      <input type="text" className="form-control form-control-sm bg-secondary border-0 text-center" style={{padding:"0"}} value={addedItem[index]} />
                       <div className="input-group-btn">
-                        <button className="btn btn-sm btn-primary btn-plus">
+                        <button className="btn btn-sm btn-primary btn-plus" onClick={()=>addItem(index)}>
                           <i className="fa fa-plus" />
                         </button>
                       </div>
                     </div>
                   </td>
                   <td className="align-middle">{data.productPrice*data.totalItem}</td>
-                  <td className="align-middle"><button className="btn btn-sm btn-danger"><i className="fa fa-times" /></button></td>
+                  <td className="align-middle"><button className="btn btn-sm btn-danger" onClick={()=>removeProduct(index)}><i className="fa fa-times" /></button></td>
                 </tr>
                   )
                 }) }
@@ -139,7 +171,7 @@ productName}</td>
               <div className="pt-2">
                 <div className="d-flex justify-content-between mt-2">
                   <h5>Total</h5>
-                  <h5>$160</h5>
+                  <h5>{totalAmount+10}</h5>
                 </div>
                 <button className="btn btn-block btn-primary font-weight-bold my-3 py-3"> <Link to="/proceedtocheckout"> Proceed To Checkout </Link> </button>
               </div>

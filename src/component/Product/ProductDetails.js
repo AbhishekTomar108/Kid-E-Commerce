@@ -45,7 +45,8 @@ const ProductDetails = () => {
       const json = await response.json();
    
       if(json.success){
-         console.log('savedproductCart = ',json.savedproductCart);         
+         console.log('savedproductCart = ',json.savedproductCart);  
+         console.log('userProductName  =',json.userProductName )       
       }
    
       else{
