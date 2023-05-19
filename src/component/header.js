@@ -10,12 +10,15 @@ import LoginContext from '../Context/LoginContext'
 const Header = () => {
     const ContextValue = useContext(LoginContext);
     const [previousIndex, setpreviousIndex] = useState(0);
+    const [searchitem, setSearchItem] = useState('')
 
     useEffect(()=>{
 
- console.log('running from header')
+   if(searchitem!==""){
+    fetch(`http://localhost:5000/api/product/products/product?q=${searchitem}`).then(res=>res.json()).then(data=>console.log(data))
+   }
 
-    },[ContextValue.productname])
+    },[ContextValue.productname, searchitem])
 
 
     const showProduct = (index)=>{
@@ -60,7 +63,7 @@ const Header = () => {
             <div className='search-container'>
                 <div className='search-input'>
                 <img src={search}/>
-                <input type='text' placeholder='Search'></input>
+                <input type='text' placeholder='Search' onChange={e=>setSearchItem(e.target.value)}></input>
                 </div>
             </div>
             </div>

@@ -20,6 +20,7 @@ router.post(
     body("name", "please enter correct name").isLength({ min: 5 }),
   ],
   async (req, res) => {
+
   
    
     // if there are error retuen bad request and error
@@ -79,6 +80,7 @@ router.post(
       body("password", "password cannot be blank").exists(),
     ],
     async (req, res) => {
+   
       // if there are error return bad request and error
       const errors = validationResult(req);
   
@@ -122,6 +124,7 @@ router.post(
   //ROUTE-3 Get loggein details using "POST /api/auth/getuser". login Required
   
   router.get("/getuser", fetchuser, async (req, res) => {
+ 
     try {
       console.log("running from try ");
       const UserId = req.user.id;
@@ -139,23 +142,11 @@ router.post(
   // ROUTE-3 post user address correspond to logged in user using post. login required
 
   router.post("/adduseraddress", fetchuser, async(req, res)=>{
+
     
     try{
       const { firstName, lastName, email, mobile, addressLine1, addressLine2, country, city, state, zipCode} = req.body;
-      
-      // const UserAddress  = new UserAddress ({
-      //   firstName,
-      //   lastName,
-      //   email,
-      //   mobile,
-      //   addressLine1,
-      //   addressLine2,
-      //   country,
-      //   city,
-      //   state,
-      //   zipCode,
-      //   user:req.user.id
-      // });
+    
 
       const useraddress= await UserAddress.create({
         firstName,
@@ -179,6 +170,8 @@ router.post(
     }
   })
 
+
+ 
   
 
 

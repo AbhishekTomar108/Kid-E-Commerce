@@ -7,10 +7,10 @@ export default function Newsletter() {
   return (
     <>
     <div className="container newsletter">
-<h2 className='head'>Images Side by Side</h2>
-<p >How to create side-by-side images with the CSS float property:</p>
+
+
 </div>
-          <div style={{width:"100vw"}} className="row">
+          {/* <div style={{width:"100vw"}} className="row">
         <div className="column">
           <img src={a1} alt="Snow"  />
         </div>
@@ -28,7 +28,7 @@ export default function Newsletter() {
         <div className="column">
           <img className='img2' src={a2} alt="Mountains" />
         </div>
-      </div>
+      </div> */}
     
     </>
   )

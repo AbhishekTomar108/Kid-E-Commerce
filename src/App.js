@@ -57,7 +57,7 @@ function App() {
         <Route  exact path="/productdetails" element={<ProductDetails/>}/>
         <Route  exact path="/productcart" element={<ProductCart/>}/>
         <Route  exact path="/proceedtocheckout" element={<ProductCheckOut/>}/>
-        <Route  exact path="/" element={[<Banner/>,<Bestseller/>,<Category/>,<Bestseller/>,<ReadMore/>,<Newsletter/>, <Press/>, <Blog/>,<Customers/>]}/>
+        <Route  exact path="/" element={[<Banner/>,<Bestseller/>,<Category/>,<Bestseller/>,<ReadMore/>, <Press/>, <Blog/>,<Customers/>]}/>
 
        
         {/* <Banner/>

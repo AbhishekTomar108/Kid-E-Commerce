@@ -23,7 +23,8 @@ const UserCart = () => {
         <label>{ContextValue.user.email}</label>
 
       </div>
-    </div> :<div className='container'> Please Login to see the Cart</div>}
+    </div> 
+    :<div className='container'> Please Login to see the Cart</div>}
     </div>
   )
 }

@@ -5,17 +5,15 @@ const bcrypt = require('bcryptjs');
 const { body, validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
 var fetchuser = require('../middleware/fetchuser');
-// const product = require('./Products.json')
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-// const productlist = require('./Products.json')
-
 const JWT_SECRET = "mmm";
 const allproducts = mongoose.model('allproducts', {});
 
 //ROUTE-1 fetch all product data using Get
 
 router.get("/products", async (req, res) => {
+
     try {
       const product = await allproducts.find({});
       console.log("running from fetch product =",product)
@@ -32,6 +30,7 @@ router.post(
 
   "/addproduct",fetchuser,
   async (req, res) => {
+
     try {
       const { productName, totalItem, productPrice } = req.body;
       const errors = validationResult(req);
@@ -70,6 +69,7 @@ router.post(
 
 router.get('/fetchalluserproduct',fetchuser, async (req,res)=>
 {
+
     try{
    const productCart  = await ProductCart.find({user:req.user.id})
    
@@ -82,6 +82,21 @@ router.get('/fetchalluserproduct',fetchuser, async (req,res)=>
     // res.json([])
 })
 
+router.get('/products/product', async(req, res) => {
+  const searchQuery = req.query.q; // Get the search query from the request parameters
+
+  const productdata = await allproducts.find({});  
+      // return res.json(product);
+ 
+  const filteredProducts = productdata.filter(p => {  
+
+  console.log("product name ",p.productname)
+  // return p.productname && p.productname.toLowerCase().includes(searchQuery);
+  });
+  
+  // Return the filtered products as a JSON response
+  res.json(filteredProducts);
+});
 
 
 
