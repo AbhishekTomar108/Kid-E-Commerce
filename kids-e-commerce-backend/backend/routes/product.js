@@ -83,19 +83,13 @@ router.get('/fetchalluserproduct',fetchuser, async (req,res)=>
 })
 
 router.get('/products/product', async(req, res) => {
-  const searchQuery = req.query.q; // Get the search query from the request parameters
+  const searchQuery = req.query; // Get the search query from the request parameters
 
-  const productdata = await allproducts.find({});  
-      // return res.json(product);
- 
-  const filteredProducts = productdata.filter(p => {  
-
-  console.log("product name ",p.productname)
-  // return p.productname && p.productname.toLowerCase().includes(searchQuery);
-  });
-  
-  // Return the filtered products as a JSON response
-  res.json(filteredProducts);
+  const productdata = await allproducts.find(searchQuery);  
+      // return res.json(product);\
+      console.log(searchQuery);
+   console.log(productdata)
+  res.json(productdata);
 });
 
 

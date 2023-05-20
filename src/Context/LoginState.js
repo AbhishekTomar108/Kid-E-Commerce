@@ -10,8 +10,12 @@ const LoginState = (props) => {
 
   
     const [productname, setproductname] = useState();
+    const [filterProduct, setfilterProduct] = useState(false)
 
+  const updateFilterProduct = (value)=>{
 
+    setfilterProduct(value)
+  }
 
     const updateUser = (data)=>{
         setUser({...user, name:data.name, email:data.email});
@@ -49,7 +53,7 @@ const LoginState = (props) => {
   }
 
   return (
-    <LoginContext.Provider value={{user, updateUser, productname, updateproductname, fetchuserDetails,}}>
+    <LoginContext.Provider value={{user, updateUser, productname, updateproductname, fetchuserDetails, filterProduct, updateFilterProduct}}>
     {props.children}
 </LoginContext.Provider>
   )

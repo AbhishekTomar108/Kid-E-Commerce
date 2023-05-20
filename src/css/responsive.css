@@ -2,6 +2,20 @@
 
     /*---------- Header component css-------------*/
 
+
+    .search_section{
+        padding: 0;
+        height: auto;
+    }
+
+    .search_input_div_input{
+        display: none;
+    }
+
+    .search_input_div{
+        background-color: transparent;
+    }
+
     .categories{
         flex-direction: column;
         row-gap: 20px;
@@ -9,9 +23,6 @@
         
     }
 
-    .header-container input{
-        display: none;
-    }
 
     .search-input{
         border: none;
@@ -27,10 +38,10 @@
         transition-property: display;
         transition-duration: 3s;
         position: relative;
-    z-index: 2;
-    background: white;
-    top: 0;
-    width: 90vw;
+        z-index: 2;
+        background: white;
+        top: 0;
+        width: 90vw;
     }
 
     .hamburger-container{

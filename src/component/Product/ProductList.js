@@ -21,19 +21,31 @@ export default function ProductList(props) {
   },[ContextValue.productname])
 
   const fetchProductData =async()=>{
+  
 
+    if(ContextValue.filterProduct===true)
+    {
+      let filterdata = JSON.parse(localStorage.getItem("filterproductData"));
+      setproductdetails(filterdata);
+      setprouctTitle(filterdata[0].title)
+      setprouctTitleDesc(filterdata[0].description)
+    }
+
+    else{
      let data = await fetch('http://localhost:5000/api/product/products');
     let parsedData  = await data.json();
 
-  let filterdata  =parsedData.filter(data=>{
+ let  filterdata  =parsedData.filter(data=>{
     return (data.product===localStorage.getItem( 'product'))
   })
+  setproductdetails(filterdata);
+    setprouctTitle(filterdata[0].title)
+    setprouctTitleDesc(filterdata[0].description)
+}
 
   
 
-    setproductdetails(filterdata);
-    setprouctTitle(filterdata[0].title)
-    setprouctTitleDesc(filterdata[0].description)
+ 
   }
 
   const showHideFilter =()=>{

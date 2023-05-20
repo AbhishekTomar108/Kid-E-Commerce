@@ -35,7 +35,14 @@ const bestseller = () => {
                     <div className="row">
                       <div className="col-md-4 mb-3">
                         <div className="card">
+                          <div className='image-add-to-cart-conatiner'>
                           <img className="img-fluid" alt="100%x280" src={img1}/>
+                          <div className='add-to-cart-dropdown-container'>
+                            <button className='quick-add-to-btn'>Quick View</button>
+                            <button className='quick-add-to-btn'>Add to Cart</button>
+                          </div>
+                          </div>
+                        
                           <div className="card-body">
                             <span className="card-title">Waldorf Wooden Rocker Balance Board for (3-10years)</span>
                             <br/>
@@ -56,9 +63,7 @@ const bestseller = () => {
                                 </div>
                           </div>
                           
-                        <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                       
                         </div>
 
                       </div>
@@ -84,9 +89,7 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                          
                         </div>
                       </div>
                       <div className="col-md-4 mb-3">
@@ -112,9 +115,34 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
+                         
                         </div>
+                      </div>
+                      
+                  
+                      <div className="col-md-4 mb-3">
+                        <div className="card">
+                          <img className="img-fluid" alt="100%x280" src={img4} />
+                          <div className="card-body">
+                          <span className="card-title">Waldorf Wooden Rocker Balance Board for (3-10years)</span>
+                            <br/>
+                            <div className='review-section'>
+                            <div className='star-group'>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                                </div> 
+                                <span>26review</span>
+                                </div>
+
+                                <div className='price-section'>
+                                    <span className='current-price'>7,500</span>
+                                    <span className='previous-price'>9,499</span>
+                                </div>
+                          </div>
+                         
                         </div>
                       </div>
                     </div>
@@ -144,11 +172,38 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                         
                         </div>
                       </div>
+
+                      
+                  
+                      <div className="col-md-4 mb-3">
+                        <div className="card">
+                          <img className="img-fluid" alt="100%x280" src={img4} />
+                          <div className="card-body">
+                          <span className="card-title">Waldorf Wooden Rocker Balance Board for (3-10years)</span>
+                            <br/>
+                            <div className='review-section'>
+                            <div className='star-group'>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                                </div> 
+                                <span>26review</span>
+                                </div>
+
+                                <div className='price-section'>
+                                    <span className='current-price'>7,500</span>
+                                    <span className='previous-price'>9,499</span>
+                                </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+
                       <div className="col-md-4 mb-3">
                         <div className="card">
                           <img className="img-fluid" alt="100%x280" src={img5} />
@@ -171,9 +226,7 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                          
                         </div>
                       </div>
 
@@ -199,15 +252,40 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                          
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="carousel-item">
                     <div className="row">
+                      
+                  
+                    <div className="col-md-4 mb-3">
+                        <div className="card">
+                          <img className="img-fluid" alt="100%x280" src={img4} />
+                          <div className="card-body">
+                          <span className="card-title">Waldorf Wooden Rocker Balance Board for (3-10years)</span>
+                            <br/>
+                            <div className='review-section'>
+                            <div className='star-group'>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                            <img src={star}/>
+                                </div> 
+                                <span>26review</span>
+                                </div>
+
+                                <div className='price-section'>
+                                    <span className='current-price'>7,500</span>
+                                    <span className='previous-price'>9,499</span>
+                                </div>
+                          </div>
+                         
+                        </div>
+                      </div>
                       <div className="col-md-4 mb-3">
                         <div className="card">
                           <img className="img-fluid" alt="100%x280" src={img7} />
@@ -230,9 +308,7 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                         
                         </div>
                       </div>
                       <div className="col-md-4 mb-3">
@@ -257,9 +333,7 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                          
                         </div>
                       </div>
                       <div className="col-md-4 mb-3">
@@ -284,9 +358,7 @@ const bestseller = () => {
                                     <span className='previous-price'>9,499</span>
                                 </div>
                           </div>
-                          <div className='add-to-cart-container'>
-                            <button>ADD TO CART</button>
-                        </div>
+                         
                         </div>
                       </div>
                     </div>

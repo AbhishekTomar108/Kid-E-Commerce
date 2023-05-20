@@ -7,7 +7,7 @@ export default function Banner() {
     <>
     
     <div style={{width:"100vw"}} id="carouselExampleControls" className="carousel slide" data-mdb-ride="carousel">
-        <div className="carousel-inner">
+        <div className="carousel-inner banner-container">
           <div className="carousel-item active">
             <img style={{height:"70vh"}} src={c1} className=" w-100 " alt="Wild Landscape" />
           </div>

@@ -6,16 +6,23 @@ import user from '../images/user.png'
 import cross from '../images/cross.png'
 import { Link } from "react-router-dom";
 import LoginContext from '../Context/LoginContext'
+import downArrow from '../images/down-arrow.png'
+
 
 const Header = () => {
     const ContextValue = useContext(LoginContext);
     const [previousIndex, setpreviousIndex] = useState(0);
     const [searchitem, setSearchItem] = useState('')
+    const [filterData, setfilterData]  = useState();
 
     useEffect(()=>{
 
    if(searchitem!==""){
-    fetch(`http://localhost:5000/api/product/products/product?q=${searchitem}`).then(res=>res.json()).then(data=>console.log(data))
+    fetch(`http://localhost:5000/api/product/products/`).then(res=>res.json()).then(data=> {const filteredDtata = data.filter(element=>{ return (element.productname.toLowerCase().includes(searchitem,0) || element.category.toLowerCase().includes(searchitem,0))})
+    ContextValue.updateFilterProduct(true)
+    setfilterData(filteredDtata)
+    localStorage.setItem('filterproductData', JSON.stringify(filteredDtata));
+})
    }
 
     },[ContextValue.productname, searchitem])
@@ -40,7 +47,9 @@ const Header = () => {
 
     const ShowHideCategories = ()=>{
         const Categories = document.getElementsByClassName('categories-container')[0];
-
+        console.log('Categories input =',Categories)
+        console.log('Categories input =',Categories.style)
+        console.log('Categories input =',Categories.style.display)
         if(Categories.style.display === "block")
         {
             Categories.style.display = "none";
@@ -49,6 +58,35 @@ const Header = () => {
             Categories.style.display = "block";
         }
        
+    }
+
+    const removeSearch = ()=>{
+        console.log('remove search running')
+        if(filterData!==null){
+            console.log('if running')
+            setfilterData(null)
+            ContextValue.updateFilterProduct(false)
+            // setSearchItem('')
+           
+        }
+    }
+
+    const showSearchBar = ()=>{
+        console.log('seacrh input running')
+        const searchInput = document.getElementsByClassName('search_input_div_input')[0]
+        console.log('style input =',searchInput)
+        console.log('style input =',searchInput.style)
+        console.log('style input =',searchInput.style.display)
+
+        const computedStyle = window.getComputedStyle(searchInput);
+        console.log('computedStyle =',computedStyle.display)
+
+        if(computedStyle.display==="none"){
+
+            console.log('if seacrh input running')
+
+            searchInput.style.display="block"
+        }
     }
 
   return (
@@ -60,12 +98,41 @@ const Header = () => {
                     <div className='line'></div>
                     <div className='line'></div>
                 </div>
-            <div className='search-container'>
+            {/* <div className='search-container'>
                 <div className='search-input'>
                 <img src={search}/>
                 <input type='text' placeholder='Search' onChange={e=>setSearchItem(e.target.value)}></input>
                 </div>
+            </div> */}
+
+            <section className='search_section'>
+            <div className='  search_input_div'>
+                <div className=' search_input_div_input'><input
+                    type='text'
+                    placeholder='Search...'
+                    autoComplete='off'
+                    value={searchitem}
+                    onChange={e=>setSearchItem(e.target.value)}
+                />
+
+                </div>
+                {/* <div className='search_icon ' onClick={showSearchBar}> */}
+                <img className='search-cross-icon' onClick={filterData?removeSearch:showSearchBar} src={filterData?cross:search}/>
+                  
+                {/* </div> */}
             </div>
+            <div className='search_result' >
+           {filterData && filterData.map((data,index)=>{
+            return (
+                    
+                <Link to='categories'><a target='_blank' className='search_suggestion_line' key={index}>
+                    {data.productname}
+                </a></Link>
+         
+            )
+           }) }
+              </div>
+        </section>
             </div>
 
             <div className='header-img'>
@@ -88,7 +155,7 @@ const Header = () => {
             <hr></hr>
             <img className='cross' onClick={ShowHideCategories} src={cross}/>
             <div className='categories'>
-            <div className='top-cotegories hover-product-list y-gap' onMouseOver={()=>showProduct(0)} >Accessories
+            <div className='top-cotegories hover-product-list y-gap' onMouseOver={()=>showProduct(0)} >Accessories <img src={downArrow} className='down-arrow'/>
             <div className='accesory-list-container dropdown-product-list' onMouseOver={()=>showProduct(0)}>
                <ul>
                <Link to='categories'><li onClick={()=>ContextValue.updateproductname("used breast pump")}>Used Breast Pump</li></Link>
@@ -108,7 +175,7 @@ const Header = () => {
                
                 </div>
 
-                <div className='top-age y-gap' onMouseOver={()=>showProduct(1)}>Toys
+                <div className='top-age hover-product-list y-gap' onMouseOver={()=>showProduct(1)}>Toys  <img src={downArrow} className='down-arrow'/>
                 <div className='toys-list-container dropdown-product-list' onMouseOver={()=>showProduct(1)}>
                <ul>
                <Link to='categories'><li onClick={()=>ContextValue.updateproductname("prongo Educational Toys")}>prongo	Educational</li></Link>
@@ -118,7 +185,7 @@ const Header = () => {
             </div>
                 
                 </div>
-                <div className='top-age y-gap' onMouseOver={()=>showProduct(2)}>  Diapers
+                <div className='top-age hover-product-list y-gap' onMouseOver={()=>showProduct(2)}>  Diapers  <img src={downArrow} className='down-arrow'/>
                 <div className='diapers-list-container dropdown-product-list' onMouseOver={()=>showProduct(2)}>
                <ul>
                <Link to='categories'><li onClick={()=>ContextValue.updateproductname("xxxl diapers")}>xxxl diapers</li></Link>
@@ -127,7 +194,7 @@ const Header = () => {
             </div>
                 </div>
 
-                 <div className='y-gap' onMouseOver={()=>showProduct(3)}>Cot
+                 <div className='y-gap hover-product-list' onMouseOver={()=>showProduct(3)}>Cot  <img src={downArrow} className='down-arrow'/>
                  <div className='diapers-list-container dropdown-product-list' onMouseOver={()=>showProduct(3)}>
                <ul>
                <Link to='categories'><li onClick={()=>ContextValue.updateproductname("wooden baby cot")}>wooden baby cot</li></Link>
@@ -135,7 +202,7 @@ const Header = () => {
                 </ul> 
             </div>
                  </div>
-                <div className='y-gap' onMouseOver={()=>showProduct(4)}>Jacket
+                <div className='y-gap hover-product-list' onMouseOver={()=>showProduct(4)}>Jacket  <img src={downArrow} className='down-arrow'/>
                 <div className='diapers-list-container dropdown-product-list' onMouseOver={()=>showProduct(4)}>
                <ul>
                <Link to='categories'><li onClick={()=>ContextValue.updateproductname("baby girl jacket")}>baby girl jacket</li></Link>
@@ -143,7 +210,7 @@ const Header = () => {
                 </ul>
                 </div>
                 </div>
-                <div className='y-gap' onMouseOver={()=>showProduct(5)}>Stroller
+                <div className='y-gap hover-product-list' onMouseOver={()=>showProduct(5)}>Stroller <img src={downArrow} className='down-arrow'/>
                 <div className='diapers-list-container dropdown-product-list' onMouseOver={()=>showProduct(5)}>
                <ul>
                 <li>baby stroller under 1000</li>
