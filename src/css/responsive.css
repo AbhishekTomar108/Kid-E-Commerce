@@ -20,6 +20,7 @@
         flex-direction: column;
         row-gap: 20px;
         padding: 20px;
+        height: auto;
         
     }
 
@@ -37,10 +38,9 @@
         display: none;
         transition-property: display;
         transition-duration: 3s;
-        position: relative;
+        position: absolute;
         z-index: 2;
         background: white;
-        top: 0;
         width: 90vw;
     }
 
@@ -59,6 +59,11 @@
     .icon{
         display: block !important;
     }
+
+    /* ---- shop by age ------- */
+    
+        
+    
 
     /* -------- Category component style-------------- */
 
@@ -128,5 +133,18 @@
 @media screen and (max-width:650px){
     .review-card-container{
     width: 85vw;
+    }
+
+    .age-image-container{
+        flex-direction: column !important;
+        row-gap: 20px;
+    }
+}
+
+@media screen and (min-width:651px) and (max-width:1064px){
+    .age-image-container{
+        display: grid !important;
+        grid-template-columns: 40% 40%;
+        row-gap: 20px;
     }
 }

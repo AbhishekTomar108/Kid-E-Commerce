@@ -7,8 +7,11 @@ export default function Category() {
   return (
     <>
    
-    <div style={{width:"100vw"}} className="container">
+    <div style={{width:"100vw", textAlign:"center"}} className="container">
     <h2>Shop By Category</h2>
+    <span className='bestseller-span container'>Explore the Collection based on the Category</span>
+
+    <div className='separator-image'></div>
     <div className="Category-container">
 <img className='image' src={i1} alt="" />
 <img className='image' src={i2} alt="" />

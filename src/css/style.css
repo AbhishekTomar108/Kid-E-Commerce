@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy&family=Poppins&family=Roboto&family=Roboto+Slab:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy&family=Poppins&family=Roboto&display=swap');
 
 /* ---------Default CSS------------*/
@@ -182,22 +183,52 @@ button{
 }
 
 .dropdown-product-list{
-    visibility: hidden;
     position: absolute;
+ 
     z-index: 3;
+    visibility: hidden;
     background: white;
-    top: 78px;
-    border: 1px solid green;
+    top: 44px;
+    margin-top: 20px;
     padding: 10px 15px;
     border-top: 0;
+    transition: margin 400ms;
+    color: rgb(182, 182, 182);
+    font-family: 'Roboto', sans-serif;
+    font-size: 15x;    
 }
+
+.dropdown-product-list ul li{
+    margin-bottom: 15px;
+}
+
+.dropdown-product-list ul li{
+    color: rgb(126, 126, 126) !important;
+}
+
+.y-gap:hover{
+    color: grey;
+}
+
+.y-gap:hover .dropdown-product-list{
+  margin-top: 10px;  
+}
+
+.dropdown-product-list li:hover{
+    color: black !important; 
+    /* font-size: 32px; */
+}
+
+
 
 .dropdown-product-list ul li:hover{
     color: rgb(187, 187, 187);
 }
 
 .y-gap{
-    margin: 25px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .hamburger-container{
@@ -266,12 +297,11 @@ button{
     display: flex;
     justify-content: center;
     column-gap: 40px;
-    background-color: #f9cf1c;
+    background-color: #f7fafe;
+    height: 50px;
 }
 
-.banner-container{
-background: #7996a7;
-}
+
 
 .down-arrow{
     height: 12px;
@@ -283,8 +313,58 @@ background: #7996a7;
     background: transparent !important;
 }
 
+/*  ------- Shop By Age ------- */
+
+
+.each-img-block{
+    overflow:hidden;
+}
+
+.shop-by-age-container{
+    text-align: center;
+}
+
+.separator-image{
+    background-image: url('../images/separator.webp');
+    height: 35px;
+    background-size: contain;
+    transform: scale(-1);
+    margin: 20px 0;
+}
+
+.shop-by-age-container span{
+   text-align: center;
+font-family: 'Roboto Slab', serif;
+font-style: italic;
+}
+
+.age-image-container img{
+     height: 250px;
+     cursor: pointer;
+     transition: transform 1s;
+}
+
+.age-image-container img:hover{
+    transform: scale(1.2);
+}
+
  
 /* ---------------BestSeller components style-------------- */
+
+.bestseller{
+    text-align: center;
+}
+
+.pt-5{
+    padding: 15px 0 0 0 !important;
+}
+
+.bestseller-span{
+text-align: center;
+font-family: 'Roboto Slab', serif;
+font-style: italic;
+}
+
 
 .bestseller h2{
     text-align: center;
@@ -332,7 +412,7 @@ background: #7996a7;
 .img-fluid{
     height: 200px;
     width: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .col-md-4{

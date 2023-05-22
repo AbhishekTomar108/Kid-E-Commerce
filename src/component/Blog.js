@@ -7,6 +7,7 @@ const Blog = () => {
   return (
     <div className='blog container'>
         <h2>Blogs Posts</h2>
+        <hr></hr>
         <div className="card-group">
         <div className="card">
           <img className="card-img-top" src={BlogImg1} alt="Card image cap" />
