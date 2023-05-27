@@ -9,6 +9,7 @@ import img7 from '../images/img-7.png'
 import img8 from '../images/img-8.png'
 import img9 from '../images/img-9.png'
 import star from '../images/star.png'
+import { Link } from "react-router-dom";
 
 
 
@@ -78,7 +79,8 @@ const Bestseller = () => {
                           <img className="img-fluid" alt="100%x280" src={data.image}/>
                           <div className='add-to-cart-dropdown-container'>
                             <button className='quick-add-to-btn'>Quick View</button>
-                            <button className='quick-add-to-btn'>Add to Cart</button>
+                            <Link to='/productdetails' onClick={()=>{localStorage.setItem('productPrice',data.price); localStorage.setItem('productName',data.productname); localStorage.setItem('productImage',data.image)}}>
+                            <button className='quick-add-to-btn'>Add to Cart</button></Link>
                           </div>
                           </div>
                         

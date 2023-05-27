@@ -57,7 +57,7 @@ const ProductDetails = () => {
     }
 
     else{
-      console.log('nahi jayega aage');
+      console.log('could not proceed further');
     }
 
   }
@@ -123,7 +123,7 @@ const ProductDetails = () => {
                   <p className="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
                     clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
                     Nonumy</p>
-                  <div className="d-flex mb-3">
+                  {/* <div className="d-flex mb-3">
                     <strong className="text-dark mr-3 strong-text">Sizes:</strong>
                     <form>
                       <div className="custom-control custom-radio custom-control-inline">
@@ -147,7 +147,7 @@ const ProductDetails = () => {
                         <label className="custom-control-label" htmlFor="size-5">XL</label>
                       </div>
                     </form>
-                  </div>
+                  </div> */}
                   <div className="d-flex mb-4">
                     <strong className="text-dark mr-3 strong-text">Colors:</strong>
                     <form>

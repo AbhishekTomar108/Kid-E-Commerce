@@ -24,6 +24,8 @@ ul{
     margin: 0;
 }
 
+
+
 .card{
     border: none;
 }
@@ -47,6 +49,10 @@ button{
     background-color: #329910;
 }
 
+.pos-rel{
+    position: relative;
+}
+
 
 
 
@@ -57,6 +63,10 @@ button{
 
 
 /*   Search css    */
+
+.search-bar-section{
+
+}
 
 .search_section {
     padding: 20px 0;
@@ -301,7 +311,11 @@ button{
     height: 50px;
 }
 
-
+.cross-to-search-bar{
+    height: 15px !important;
+    margin-left: 5px;
+    display: none;
+}
 
 .down-arrow{
     height: 12px;
@@ -348,12 +362,75 @@ font-style: italic;
     transform: scale(1.2);
 }
 
+.shop-by-category{
+    overflow: hidden;
+}
+
+.categories-image{
+    cursor: pointer;
+    transition: transform 1s;
+}
+.categories-image:hover{
+    transform: scale(1.2);
+}
+
  
 /* ---------------BestSeller components style-------------- */
 
 .bestseller{
     text-align: center;
+    position:relative;
 }
+
+
+.cross-quick-view{
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.quick-view-product-container{
+    position: fixed;
+    top: 20%;
+    left: 0;   
+    z-index: 5;
+    opacity: 0;
+    height: 0;
+    z-index: 9999;
+    visibility: hidden;
+    overflow-y: auto;
+    transition: opacity 0.5s, height 0.5s, visibility 0.5s;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    backdrop-filter: blur(5px);
+  }
+
+  .bestseller-col-lg-7{
+    width: 45.333333% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .bestseller-col-lg-5{
+    width:30.666667% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .quick-view-row{
+    justify-content: center;
+  }
 
 .pt-5{
     padding: 15px 0 0 0 !important;
@@ -420,7 +497,16 @@ font-style: italic;
 }
 
 .card-body{
-    padding:10px;
+    padding:0 0 10px 5px;
+    text-align: initial;
+    font-size: 14px;
+}
+
+.card-title{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 2px;
 }
 
 .add-to-cart-container button{
@@ -567,6 +653,95 @@ body {
 /* Category */
 
 
+.shop-by-Category-container{
+            display: flex;
+            justify-content: space-around;
+}   
+
+.shop-by-Category-container div{
+    min-height: 150px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    /* background: white; */
+    /* border-radius: 50%; */
+    align-items: center;
+    /* border: 1px solid #f1f1f1; */
+    font-size: 18px;
+    font-weight: 700;
+    justify-content: center;
+}
+
+.accessories{
+    color: #e36ba2;
+    background-image: url('../images/accessories-small.jpg') !important;
+    border: 1px solid #e36ba2;
+    background-size: cover !important;
+    overflow: hidden;
+    
+}
+
+.accessories:hover{
+    background: linear-gradient(#e36ba2,#d8327c);
+    color: white;
+}
+.toys{
+    color: #5f4e85;
+    border: 1px solid #5f4e85;
+    background-image: url('../images/toys-small.webp') !important;
+    background-size: cover !important;
+}
+
+.toys:hover{
+    background: linear-gradient(#5f4e85,#331277);
+    color: white;
+}
+.diapers{
+    color: #7dbb44;
+    background-image: url('../images/diaper-small.jpg') !important;
+    border: 1px solid #7dbb44;
+    background-size: cover !important;
+}
+
+.diapers:hover{
+    background: linear-gradient(#7dbb44,#57951e);
+    color: white;
+}
+.cot{
+    color: #f3bc5b;
+    background-image: url('../images/cots-small.webp') !important;
+    border: 1px solid #f3bc5b;
+    background-size: cover !important;
+}
+
+.cot:hover{
+    background: linear-gradient(#f3bc5b,#b57d1c);
+    color: white;
+}
+.jacket{
+    color: #71dcc9;
+    background-image: url('../images/jacket-small.jpg') !important;
+    border: 1px solid #71dcc9 !important;
+    background-size: cover !important;
+}
+
+.jacket:hover{
+    background: linear-gradient(#71dcc9,#19a78f);
+    color: white;
+}
+.stroller{
+    color: #ed782f;
+    border: 1px solid #ed782f !important;
+    background-image: url('../images/stroller-small.avif') !important;
+    background-size: cover !important;
+}
+
+.stroller:hover{
+    background: linear-gradient(#ed782f,#ad5a28);
+    color: white;
+}
+
 .Category-container {
     display: grid;
     grid-template-columns: 39vw 39vw;
@@ -576,7 +751,7 @@ body {
    
 }
 .Category-container img{
-    width: 38vw;
+    width: 100%;
    
 }
 
@@ -698,6 +873,13 @@ justify-content: center;
     text-align: initial;
     margin: 20px 0;
     font-size: 18px;
+}
+
+.filter-content-section li{
+    cursor: pointer;
+}
+.filter-content-section li:hover{
+    color: black;
 }
 
 .stock-container{
@@ -883,6 +1065,10 @@ a{
     color: black;
 }
 
+.card-text{
+    height: 82px;
+}
+
 
 /* --------- Login component Style -----------*/
 
@@ -944,6 +1130,7 @@ justify-content: space-between;
 p{
     font-size: 14px;
     text-align: initial;
+    
 }
 .blog-text{
     justify-content: center;

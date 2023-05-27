@@ -35,29 +35,7 @@ const Filter = () => {
                 <h2>Filter</h2>
             </div>
 
-            <div className='color-container'>
-                <div className='text-section'>
-                <h2>Out of Stock</h2>
-               
-                    <img className='drop-down-arrow' onClick={()=>showColor(0)} src={down}/>
-                    </div>
-
-                    <div className='stock-container filter-content-section'>
-                        <div className='show-text'><span>Show</span></div> 
-                        <div className='hide-text'></div><span>Hide</span>
-                    </div>
-                  
-               {/* <div className='color-section filter-content-section'>
-                {
-                    colorArray.map((data,index)=>{
-                        return(
-                            <div className='color-circle' key={index} style={{background:data}}></div>
-                        )
-                    })
-                }
-                </div> */}
-            
-            </div>
+        
 
             <div className='size-container'>
             <div className='text-section'>
@@ -69,31 +47,13 @@ const Filter = () => {
                     <li>0-1 years</li>
                     <li>1-2 years</li>
                     <li>2-3 years</li>
-                    <li>3-4 years</li>
-                    <li>4-5 years</li>
-                    <li>6+ years</li>
-                    <li>All years</li>
+                    <li>4+ years</li>
+                   
                    
                 </ul>
             </div>
 
-            <div className='price-container'>
-            <div className='text-section'>
-                <h2>Price</h2>
-               
-                    <img className='drop-down-arrow' onClick={()=>showColor(2)} src={down}/>
-                    </div>
-                <div className='price-box filter-content-section'>
-                    <div className='low-to-high'>
-                        <input type='checkbox'></input>
-                        Price : Low to High
-                    </div>
-                    <div className='High-to-Low'>
-                        <input type='checkbox'></input>
-                        Price : High to Low
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         
